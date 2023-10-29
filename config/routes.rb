@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   resources :comments
 
   resources :posts do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'welcome/about'
+  post 'contacts', controller: "welcome", action: :contacts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

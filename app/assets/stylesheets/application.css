@@ -13,3 +13,710 @@
  *= require_tree .
  *= require_self
  */
+
+ @font-face {
+    font-weight: 400;
+    font-family: PT_Mono;
+    src: url("PT_Mono/PTMono-Regular.ttf");
+}
+
+@font-face {
+    font-weight: 400;
+    font-family: Tilda Sans;
+    src: url("tilda_sans/tilda-sans_regular.ttf")
+}
+
+@media screen and (min-width: 375px) {
+    .tablet {
+        display: none;
+    }
+    body {
+        background-color: #05050A;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main {
+        width: 375px;
+    }
+
+    h1 {
+        color: #F7F7F7;
+        font-weight: 400;
+        font-family: PT_Mono;
+        font-size: 26px;
+        line-height: 41.6px;
+        margin: 0;
+        display: inline-block;
+        padding: 0 30px;
+        margin-top: 60px;
+        width: 316px;
+        height: 238px;
+        background-image: url("planetsmall.png");
+        background-repeat: no-repeat;
+        background-position: left 30px top 80px;
+    }
+
+    .h1_border {
+        border-bottom: #404454 solid 1px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+
+    article {
+        display: inline-block;
+        width: 279px;
+    }
+
+    .list {
+        margin-top: 70px;
+        margin-left: 30px;
+        width: 279px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .list h2 {
+        color: #F7F7F7;
+        font-weight: 400;
+        font-family: PT_Mono;
+        font-size: 20px;
+        line-height: 32px;
+        margin: 0;
+        margin-top: 18px;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        display: inline-block;
+    }
+    
+    .list p {
+        color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 16px;
+        line-height: 20.8px;
+        margin: 0;
+    }
+    
+    form {
+        margin-top: 100px;
+        margin-left: 30px;
+    }
+    
+    .connect {
+        height: 430px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    form label {
+        color: #F7F7F7;
+        font-weight: 400;
+        font-family: PT_Mono;
+        font-size: 20px;
+        line-height: 32px;
+        margin: 0;
+    }
+    
+    form input {
+        color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 16px;
+        line-height: 25.6px;
+        margin: 0;
+        margin-right: 15px;
+        position: relative;
+        top: 3px;
+        align-self: start;
+    }
+    
+    .line {
+        display: flex;
+        height: 120px;
+    }
+    .small {
+        height: 90px;
+    }
+    .subline {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    input[type=text] {
+        background-color: #05050A;
+        border: none;
+        height: 100%;
+        width: 243px;
+        border-bottom: #F7F7F7 solid 1px;
+        color: #2C3342;
+        font-size: 20px;
+        line-height: 32px;
+        text-align: left;
+        margin-right: 20px;
+    }
+
+    .dot {
+        align-self: end;
+        position: relative;
+        top: 10px;
+    }
+    
+    button {
+        margin-left: 32px;
+        margin-top: 52px;
+        display: flex;
+        padding: 0px;
+        border: none;
+        background-color: #05050A;
+        background-image: none;
+    }
+    
+    button img {
+        margin-right: 0;
+        margin-left: 19px;
+    }
+    
+    button p {
+        color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 16px;
+        line-height: 20.8px;
+        margin: 0;
+        text-align: left;
+    }
+    
+    footer {
+        margin-top: 114px;
+        width: 100%;
+        border-top: #FFFFFF solid 1px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .about {
+        width: 375px;
+    }
+    
+    .about_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 250px;
+        padding: 30px 30px 0px 30px;
+    }
+    
+    .logo {
+        background-image: url("A_Logo.png");
+        height: 16.5px;
+        width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    footer h3 {
+        color: #F7F7F7;
+        font-weight: 400;
+        font-family: PT_Mono;
+        font-size: 16px;
+        line-height: 22.4px;
+        margin: 0;
+        border-bottom: #404454 1px solid;
+        height: 36px;
+        width: 233px;
+    }
+    
+    .keep_in_touch {
+        margin-top: 11px;
+        width: 233px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .keep_in_touch p {
+        margin: 0 0 0 0;
+    }
+    
+    .keep_in_touch a {
+        color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 16px;
+        line-height: 20.8px;
+        margin: 0;
+        text-decoration: none;
+        white-space: nowrap;
+        display: inline-block;
+        margin-top: 5px;
+    }
+    
+}
+
+@media screen and (min-width: 744px) {
+    .phone {
+        display: none;
+    }
+
+    .tablet {
+        display: inline-block;
+    }
+
+    body {
+        background-color: #05050A;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-image: url("planetmed.png");
+        background-repeat: no-repeat;
+        background-position: top -130px left 85vw;
+    }
+    
+    .main {
+        width: 744px;
+        height: 945px;
+    }
+    
+    h1 {
+        color: #F7F7F7;
+        font-weight: 400;
+        font-family: PT_Mono;
+        font-size: 24px;
+        line-height: 38px;
+        margin: 0;
+        display: inline-block;
+        margin-left: 30px;
+        margin-top: 30px;
+        width: 626px;
+        height: 104px;
+        border-bottom: #404454 solid 1px;
+        background-image: none;
+    }
+
+    .container {
+        border-top: none;
+    }
+    article {
+        display: inline-block;
+        width: 196px;
+    }
+    .list {
+        margin-top: 94px;
+        margin-left: 30px;
+        width: 622px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .list h2 {
+        color: #F7F7F7;
+        font-weight: 400;
+        font-family: PT_Mono;
+        font-size: 16px;
+        line-height: 27.2px;
+        margin: 0;
+        margin-top: 18px;
+        margin-bottom: 8px;
+        white-space: nowrap;
+    }
+    
+    .list p {
+        color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 14px;
+        line-height: 18.2px;
+        margin: 0;
+    }
+    
+    form {
+        margin-top: 126px;
+        margin-left: 30px;
+    }
+    
+    .connect {
+        height: 244px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    form label {
+        color: #F7F7F7;
+        font-weight: 400;
+        font-family: PT_Mono;
+        font-size: 16px;
+        line-height: 25px;
+        margin: 0;
+        margin-right: 22px;
+    }
+    
+    form span {
+        color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 12px;
+        line-height: 13.32px;
+        margin: 0;
+        margin-right: 27px;
+        position: relative;
+        top: 5px;
+        align-self: start;
+    }
+    
+    .line {
+        display: flex;
+        height: 58px;
+    }
+    .subline {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    input[type=text] {
+        background-color: #05050A;
+        border: none;
+        height: 100%;
+        width: 469px;
+        border-bottom: #F7F7F7 solid 1px;
+        color: #2C3342;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: left;
+        margin-right: 20px;
+    }
+
+    .dot {
+        align-self: end;
+        top: 0px;
+    }
+    
+    button {
+        margin-left: 39px;
+        margin-top: 40px;
+        display: flex;
+        padding: 0px;
+        border: none;
+        background-color: #05050A;
+        background-image: none;
+    }
+    
+    button img {
+        margin-right: 19px;
+        margin-left: 0;
+    }
+    
+    button p {
+        color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 12px;
+        line-height: 15.6px;
+        margin: 0;
+        text-align: left;
+    }
+    
+    footer {
+        margin-top: 0;
+        width: 100%;
+        border-top: #FFFFFF solid 1px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .about {
+        width: 744px;
+    }
+    
+    .about_container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 30px 30px 0px 30px;
+    }
+    
+    .logo {
+        background-image: url("A_Logo.png");
+        height: 14px;
+        width: 59px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    footer h3 {
+        color: #F7F7F7;
+        font-weight: 400;
+        font-family: PT_Mono;
+        font-size: 12px;
+        line-height: 13.32px;
+        margin: 0;
+        border-bottom: #404454 1px solid;
+        height: 27px;
+    }
+    
+    .keep_in_touch {
+        width: 251px;
+        display: flex;
+        flex-direction: row;
+        align-content: space-between;
+    }
+
+    .keep_in_touch p {
+        margin: 9px 0 0 0;
+    }
+    
+    .keep_in_touch a {
+        color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 12px;
+        line-height: 13.32px;
+        margin: 0;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+    
+}
+
+@media screen and (min-width: 1281px) {
+
+body {
+    background-color: #05050A;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url("planet.png");
+    background-repeat: no-repeat;
+    background-position: top -130px left 80vw;
+}
+
+.main {
+    width: 1280px;
+    height: 1041px;
+}
+
+h1 {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 36px;
+    line-height: 54px;
+    margin: 0;
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 36px;
+    width: 880px;
+    height: 145px;
+    border-bottom: #404454 solid 1px;
+}
+
+article {
+    display: inline-block;
+    width: 250px;
+}
+
+.list {
+    margin-top: 106px;
+    margin-left: 50px;
+    width: 858px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list h2 {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 22px;
+    line-height: 33px;
+    margin: 0;
+    margin-top: 24px;
+    margin-bottom: 11px;
+}
+
+.list p {
+    color: #595E75;
+    font-weight: 400;
+    font-family: Tilda Sans;
+    font-size: 18px;
+    line-height: 22.68px;
+    margin: 0;
+}
+
+form {
+    margin-top: 138px;
+    margin-left: 50px;
+}
+
+.connect {
+    height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form label {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 22px;
+    line-height: 35.99px;
+    margin: 0;
+    margin-right: 22px;
+}
+
+form span {
+    color: #595E75;
+    font-weight: 400;
+    font-family: Tilda Sans;
+    font-size: 14px;
+    line-height: 15.54px;
+    margin: 0;
+    margin-right: 22px;
+    position: relative;
+    top: 6px;
+    align-self: start;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 38.66px;
+}
+
+.subline {
+    display: flex;
+    flex-direction: row;
+}
+
+input[type=text] {
+    background-color: #05050A;
+    border: none;
+    height: 100%;
+    border-bottom: #F7F7F7 solid 1px;
+    color: #2C3342;
+    font-size: 22px;
+    line-height: 35.99px;
+    text-align: center;
+    margin-right: 0;
+    width: 295px;
+}
+
+button {
+    margin-left: 0;
+    margin-top: 50.67px;
+    display: flex;
+    padding: 0px;
+    border: none;
+    background-color: #05050A;
+    
+}
+
+button img {
+    margin-right: 19px;
+}
+
+button p {
+    color: #595E75;
+    font-weight: 400;
+    font-family: Tilda Sans;
+    font-size: 14px;
+    line-height: 17.64px;
+    margin: 0;
+    text-align: left;
+}
+
+footer {
+    width: 100%;
+    border-top: #FFFFFF solid 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.about {
+    width: 1280px;
+}
+
+.about_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 34px 50px 0px 50px;
+    height: 120px;
+}
+
+.logo {
+    background-image: url("A_Logo.png");
+    height: 19.33px;
+    width: 81.33px;
+}
+
+footer h3 {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 14px;
+    line-height: 15.54px;
+    margin: 0;
+    border-bottom: #404454 1px solid;
+    height: 27px;
+}
+
+.keep_in_touch {
+    width: 300px;
+    display: flex;
+    align-content: space-between;
+}
+
+.keep_in_touch a {
+    color: #595E75;
+    font-weight: 400;
+    font-family: Tilda Sans;
+    font-size: 14px;
+    line-height: 15.54px;
+    margin: 0;
+    text-decoration: none;
+    white-space: nowrap;
+}
+}
+
+#comments_link {
+    color: #595E75;
+        font-weight: 400;
+        font-family: Tilda Sans;
+        font-size: 16px;
+        line-height: 20.8px;
+        margin: 0;
+}
