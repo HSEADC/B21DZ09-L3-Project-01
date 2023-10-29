@@ -2,6 +2,11 @@
 
 <%= render @post %>
 
+<%= link_to "New Comment", new_post_comment_path(@post) %>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>
@@ -9,11 +14,9 @@
   <%= button_to "Destroy this post", @post, method: :delete %>
 </div>
 
+
 	<h2>Add a comment:</h2>
 	<%= render "comments/form" %>
-
-<h2>Comments</h2>
-<%= render @post.comments %>
 
 <p>
 	<strong>Author:</strong>
