@@ -2,17 +2,17 @@
 
 <%= render @post %>
 
-<%= link_to "New Comment", new_post_comment_path(@post) %>
+<%= link_to "New Comment", new_post_comment_path(@post), class: "manage_button" %>
 
 <h2>Comments</h2>
 <%= render @post.comments %>
 
 <div>
-  <%= link_to "Back to posts", posts_path %>
+  <%= link_to "Back to posts", posts_path, class: "manage_button" %>
 
   <% if can? :manage, @post %> 
-  <%= button_to "Delete this post", @post, data: {turbo_method: :delete}%>
-  <%= link_to "Edit this post", edit_post_path(@post) %>
+  <%= link_to "Delete this post", @post, data: {turbo_method: :delete}, class: "manage_button"%>
+  <%= link_to "Edit this post", edit_post_path(@post), class: "manage_button" %>
 <% end %>
 </div>
 

@@ -14,6 +14,35 @@
  *= require_self
  */
 
+ p {
+font-family: Tilda Sans;
+font-size: 24px;
+color: #FFFFFF;
+ }
+
+ .manage_button  {
+    display: inline-block;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px 6px 0px 6px;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Tilda Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    padding: 8px 16px;
+ }
+
+ h2 {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 36px;
+    line-height: 54px;
+ }
+
  @font-face {
     font-weight: 400;
     font-family: PT_Mono;
@@ -772,6 +801,7 @@ max-width: 1180px;
     padding-left: 0px;
     list-style-type: none;
     padding-right: 20px;
+    position: relative;
 }
 
 .FirstValue {
@@ -786,6 +816,10 @@ max-width: 1180px;
     line-height: 15px;
 }
 
+.FirstValue:nth-child(1){
+    padding-top: 0px;
+}
+
 .OurValuesDescription {
     color: #F7F7F7;
     font-weight: 400;
@@ -795,4 +829,169 @@ max-width: 1180px;
     width: 585px;
 }
 
+.Show_name {
+    color: #FFFFFF;
+    font-family: PT Mono;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    text-transform: uppercase;
+    padding-top: 149px;
+}
 
+.Show_name_2 {
+    color: #FFFFFF;
+    font-family: PT Mono;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    text-transform: uppercase;
+    z-index: 0;
+    position: absolute;
+    left: 224px;
+}
+
+.Showlink {
+color: #595E75;
+font-family: Tilda Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px;
+text-align: center;
+}
+
+.Portfolio_container {
+    padding-top: 244px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PortfolioStrings {
+ border-top: 1px solid #404454;
+ width: 1180px;
+ position: relative;
+}
+
+.FirstString {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 36px;
+}
+
+.FirstString:nth-child(1){
+    padding-top: 65px;
+    padding-left: 36px;
+}
+
+.FirstString:nth-child(2){
+    padding-left: 316px;
+    line-height: 8px;
+}
+
+.FirstString:nth-child(3){
+    text-align: right;
+}
+
+.PortfolioArrows {
+    position: absolute;
+    top: 97px;
+    left: 0px;
+}
+
+.PortfolioPhotoContainer {
+    width: 1180px;
+}
+
+.FirstRowPhotos {
+    display: flex;
+    flex-direction: row;
+    padding-top: 65px;
+}
+
+.FirstColumnContainer {
+    display: flex;
+    flex-direction: column;
+    width: 179px;
+    padding-right: 11px;
+    justify-content: space-between;
+}
+
+.DesignCommentTitle {
+color: #FFFFFF;
+font-family: PT Mono;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 15px;
+text-transform: uppercase;
+}
+
+.DesignComment {
+color: #595E75;
+font-family: Tilda Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 15px;
+max-width: 179px;
+}
+
+.DesignBy {
+color: #FFF;
+font-family: Tilda Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 15px;
+}
+
+.ThirdColumnContainer {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.SecondRowPhotos {
+    padding-top: 76px;
+}
+
+.SecondRowPhotos {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding-bottom: 150px;
+}
+
+.SecondColumnContainer {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 179px;
+    justify-content: space-between;
+}
+
+.Hornytshirt {
+    position: absolute;
+    bottom: 187px;
+    right: 20px;
+    z-index: -1;
+}
+
+.PortfolioMan {
+    z-index: -2;
+}
+
+.container_about {
+    width: 1180px;
+    margin-bottom: 184px;
+}
+
+.LastTitleAbout {
+    border-bottom: 1px solid #404454;
+    padding-bottom: 27px;
+}
