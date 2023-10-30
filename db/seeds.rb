@@ -8,11 +8,23 @@
 
 @raw_text = 'Дом Наркомфина — один из знаковых памятников архитектуры советского авангарда и конструктивизма. Построен в 1928—1930 годах по проекту архитекторов Моисея Гинзбурга, Игнатия Милиниса и инженера Сергея Прохорова для работников Народного комиссариата финансов СССР (Наркомфина). Автор замысла дома Наркомфина Гинзбург определял его как «опытный дом переходного типа». Дом находится в Москве по адресу: Новинский бульвар, дом 25, корпус 1. С начала 1990-х годов дом находился в аварийном состоянии, был трижды включён в список «100 главных зданий мира, которым грозит уничтожение». В 2017—2020 годах отреставрирован по проекту АБ «Гинзбург Архитектс», функционирует как элитный жилой дом. Отдельно стоящий «Коммунальный блок» (историческое название) планируется как место проведения публичных мероприятий.'
 @words = @raw_text.downcase.gsub(/[—.—,«»:()]/, '').gsub(/  /, ' ').split(' ')
+@users = []
 
 def seed
   reset_db
+  create_users(10)
   create_posts(10)
   create_comments(2..8)
+  create_subscriptions(10)
+end
+
+def create_users(quantity)
+  quantity.times do |i|
+    user= User.create(email: Faker::Internet.email, password: "123456")
+    puts "user with id #{user.id} and email #{user.email}"
+    @users << user
+  end
+  User.create(email: "user_admin@email.ru", password: "admin1", admin: true)
 end
 
 def reset_db
@@ -39,7 +51,7 @@ end
 
 def create_posts(quantity)
   quantity.times do
-    post = Post.create(title: create_sentence, description: create_sentence, post_image: upload_random_image)
+    post = Post.create(title: create_sentence, content: create_sentence, post_image: upload_random_image, user: @users.sample, name: create_sentence)
     puts "Post with id #{post.id} just created"
   end
 end
@@ -47,10 +59,15 @@ end
 def create_comments(quantity)
   Post.all.each do |post|
     quantity.to_a.sample.times do
-      comment = Comment.create(post_id: post.id, body: create_sentence)
+      comment = Comment.create(post_id: post.id, body: create_sentence, user: @users.sample)
       puts "Comment with id #{comment.id} for post with id #{comment.post.id} just created"
     end
   end
 end
 
+def create_subscriptions(quantity)
+  quantity.times do |i|
+    Subscription.create(name: Faker::Name.name, telegram: "@#{Faker::Internet.username}", site: Faker::Internet.url)
+  end
+end
 seed

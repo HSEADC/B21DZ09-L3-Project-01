@@ -2,15 +2,15 @@
 
 <h1>Posts</h1>
 
-<%= link_to "New post", new_post_path %>
+<p><%= link_to "New post", new_post_path, class: "manage_button"  %></p>
 
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
     <p>
-      <%= link_to "Show this post", post %>
+      <%= link_to "Show this post", post, class: "manage_button"  %>
       <% if can? :manage, post %> 
-  <%= link_to "Delete this post", post, data: {turbo_method: :delete}%>
+  <%= link_to "Delete this post", post, class: "manage_button", data: {turbo_method: :delete}%>
 <% end %>
     </p>
   <% end %>

@@ -10,6 +10,10 @@ class SubscriptionsController < ApplicationController
         end
     end
 
+def index
+    @subs=Subscription.all
+end
+
     private
     def sub_params
         params.require(:subscription).permit(:name, :telegram, :site)

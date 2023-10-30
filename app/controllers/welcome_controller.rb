@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def about 
-
+    @sub = Subscription.new
   end
 
   def contacts

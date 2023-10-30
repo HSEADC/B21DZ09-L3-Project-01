@@ -5,13 +5,17 @@ class Ability
 
   def initialize(user)
 
-if user.admin?
+if user && user.admin?
   can :manage, :all
+elsif user 
+  can :manage, Comment, user_id: user.id
+  can :read, Comment
+  can :read, Post
+  can :manage, Post, user_id: user.id
+  
 else
-    can :manage, Comment, user_id: user.id
     can :read, Comment
     can :read, Post
-    can :manage, Post, user_id: user.id
 end
 
     # Define abilities for the user here. For example:

@@ -12,12 +12,91 @@
             <li class="FirstValue">Яркая индивидуальность</li>
             <li class="FirstValue">Безапелляционное качество</li>
             <li class="FirstValue">Притягивающее комьюнити</li>
+
+            <div class="ShowContainer">
+            <p class="Show_name">ШОУ «ОДИН ДЕНЬ С БРЕНДОМ»</p>
+            <p class="Show_name_2"> Episode #1 Favias X at.wrldwide </p>
+            <%=image_tag "girl.png", alt:"girl"%>
+            <p class="Showlink">Смотреть выпуск на YouTube</p>
         </ul>
         <p class="OurValuesDescription">ЕСТЬ КОНТАКТ! КОМАНДА&nbsp;FAVIAS УМЕЕТ СЛЫШАТЬ И&nbsp;СЛУШАТЬ. МЫ&nbsp;ВЫСТРАИВАЕМ ПАРТНЕРСКИЕ ОТНОШЕНИЯ&nbsp;С&nbsp;БРЕНДАМИ И&nbsp;ПООЩРЯЕМ ВЫХОД
         ЗА&nbsp;РАМКИ СТАНДАРТОВ&nbsp;ПОЗИЦИОНИРОВАНИЯ НА&nbsp;МАРКЕТПЛЕЙСЕ:&nbsp;СНИМАЕМ ШОУ ОДИН&nbsp;ДЕНЬ&nbsp;С&nbsp;БРЕНДОМ И&nbsp;ЗАПУСКАЕМ САЙТ-ПОРТФОЛИО ДЛЯ ДИЗАЙНЕРОВ ОДЕЖДЫ.</p>
         </div>
-        <div class="ShowContainer">
-        
-        </div>
     </div>
+    <div class="Portfolio_container">
+    <h2 class="OurValuesTitle">СОБИРАЕМ ЗВЕЗДНОЕ ПОРТФОЛИО</h2>
+    <div class="PortfolioStrings">
+    <h2 class="FirstString">ПОКАЖИ САМЫЕ КРУТЫЕ ПРОЕКТЫ</h2>
+    <h2 class="FirstString">РАССКАЖИ ИСТОРИИ СОЗДАНИЯ КОЛЛЕКЦИЙ</h2>
+    <h2 class="FirstString">ПОЙМАЙ ВОЛНУ ЛАЙКОВ И РЕПОСТОВ</h2>
+    <%=image_tag "PortfolioArrows.png", class: "PortfolioArrows", alt:"PortfolioArrows"%>
+    </div>
+
+    <div class="PortfolioPhotoContainer">
+    <div class="FirstRowPhotos">
+    <div class="FirstColumnContainer">
+    <div class ="DesignCommentContainer">
+    <p class="DesignCommentTitle">КОММЕНТАРИЙ ДИЗАЙНЕРА</p>
+    <p class="DesignComment">Создавая это худи хотелось уйти от длинных оверсайз худи и попробовать что-то новое и так вышел укорочённый интересный силуэт.</p>
+    </div>
+    <p class="DesignBy">Perforated gray hoodie Designed by ACT brand</p>
+    </div>
+    <%=image_tag "PortfolioMan.png", class: "PortfolioMan", alt:"PortfolioMan"%>
+    <div class="ThirdColumnContainer">
+    <p class="DesignBy">T-Shirt «HORNY» Designed&nbsp;by&nbsp;at.wrldwide</p>
+    </div>
+    </div>
+    
+    <div class="SecondRowPhotos"> 
+    <%=image_tag "SportBrandPhoto.png", class: "SportBrandPhoto", alt:"SportBrandPhoto"%>
+    <%=image_tag "Hornytshirt.png", class: "Hornytshirt", alt:"Hornytshirt"%>
+    <div class="SecondColumnContainer">
+    <div class ="DesignCommentContainer">
+    <p class="DesignCommentTitle">КОММЕНТАРИЙ ДИЗАЙНЕРА</p>
+    <p class="DesignComment">Моя первая футболка, которую я создавал 4 года в&nbsp;соавторстве с буддийскими монахами.</p>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+        <div class="container_about">
+            <h2 class="OurValuesTitle LastTitleAbout">ПОЛЕТЕЛИ С НАМИ</h2>
+          <%= turbo_frame_tag @sub do %>
+        <%= form_with model: @sub, method: :post do |form| %>
+            <div class="connect">
+                <div class="line small">
+                    <span>01</span>
+                    <div class="subline">
+                        <%= form.label :name,"МЕНЯ ЗОВУТ" %>
+                        <%= form.text_field :name, placeholder:"РУБИ РОД" %>
+                    </div><label for="name" class="dot">,</label>
+                </div>
+                <div class="line">
+                    <span>02</span>
+                    <div class="subline">
+                    <%= form.label :telegram do %>
+                        МОЙ ПОЗЫВНОЙ <br class="phone"> В ТЕЛЕГРАМ
+                    <% end %>
+                    <%= form.text_field :telegram, placeholder:"@NAME_NAME" %>
+                    </div><label for="telegram" class="dot">,</label>
+                </div>
+                <div class="line">
+                    <span>03</span>
+                    <div class="subline">
+                    <%= form.label :site do %>
+                        СТРАНИЧКА/АККАУНТ <br class="phone"> МОЕГО БРЕНДА
+                        <% end %>
+                    <%= form.text_field :site, placeholder:"BRAND.COM" %>
+                    </div><label for="site" class="dot">.</label>
+                </div>
+            </div>
+                <%= form.button do %>
+                    <%=image_tag "arrow.png", alt:"arrow", class:"tablet" %>
+                        <p>Отправь нам сигнал,<br class="tablet">и мы <br class="phone">ответим в ближайшее время!<br>Канал связи — Telegram.</p>
+                        <%=image_tag "arrow.png", alt:"arrow", class:"phone", style:"width: 56px; height: 56px;" %>
+                <% end %>
+        <% end %>
+        <% end %>
+        </div>
 </main>

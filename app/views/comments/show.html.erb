@@ -3,8 +3,8 @@
 <%= render @comment %>
 
 <div>
-  <%= link_to "Edit this comment", edit_comment_path(@comment) %> |
-  <%= link_to "Back to comments", comments_path %>
+  <%= link_to "Edit this comment", edit_comment_path(@comment), class: "manage_button"%> |
+  <%= link_to "Back to comments", comments_path, class: "manage_button" %>
 
-  <%= button_to "Destroy this comment", @comment, method: :delete %>
+  <%= link_to "Destroy this comment", @comment, class: "manage_button", data: {turbo_method: :delete} %>
 </div>
