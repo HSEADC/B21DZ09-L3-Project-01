@@ -9,7 +9,9 @@
     <%= render post %>
     <p>
       <%= link_to "Show this post", post %>
-      <%= link_to "Delete this post", post, data: {turbo_method: :delete}%>
+      <% if can? :manage, post %> 
+  <%= link_to "Delete this post", post, data: {turbo_method: :delete}%>
+<% end %>
     </p>
   <% end %>
 </div>

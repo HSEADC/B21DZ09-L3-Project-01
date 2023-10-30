@@ -16,6 +16,13 @@
   <%= link_to "Главная", welcome_index_path %>
   <%= link_to "О нас", welcome_about_path %>
   <%= link_to "Посты", posts_path %>
+  <% if user_signed_in? %>
+  <%= link_to current_user.email, edit_user_registration_path %>
+  <%= link_to "logout", destroy_user_session_path, data: {turbo_method: :delete} %>
+  <% else %>
+  <%= link_to "login", new_user_session_path %>
+  <%= link_to "registr", new_user_registration_path %>
+  <% end %>
 
   </header>
 

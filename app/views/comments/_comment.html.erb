@@ -9,5 +9,11 @@
     <%= comment.body %>
   </p>
 
+  <% if can? :manage, comment %> 
+  <div> 
+  <%= link_to "Edit this comment", edit_comment_path(comment) %> |
+  <%= button_to "Destroy this comment", comment, data: {turbo_method: :delete}%>
+</div>
+<% end %>
 
 </div>
