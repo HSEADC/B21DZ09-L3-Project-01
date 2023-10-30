@@ -720,3 +720,79 @@ footer h3 {
         line-height: 20.8px;
         margin: 0;
 }
+
+.About_main {
+    background-image: none;
+    flex-direction: column;
+}
+
+.Invitation {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 36px;
+    line-height: 54px;
+    margin-top: 250px;
+    max-width: 1180px;
+    text-indent: 540px;
+}
+
+.InvitationImage {
+    background-image: url("bg_stars.png");
+    background-repeat: no-repeat;
+    background-position: left 272px top 80px;
+}
+
+.OurValues {
+  margin-top: 276px; 
+  width: 100%;
+ display: flex;
+justify-content: center;
+flex-direction: column;
+max-width: 1180px;
+}
+
+.OurValuesTitle {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 36px;
+    line-height: 54px;
+    text-align: center;
+}
+
+.OurValuesContainer {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #404454;
+}
+
+.ValuesList {
+    width: 580px;
+    padding-left: 0px;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+.FirstValue {
+    border-bottom: 1px solid #404454;
+    padding-bottom: 12px;
+    padding-left: 80px;
+    padding-top: 12px;
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: Tilda Sans;
+    font-size: 14px;
+    line-height: 15px;
+}
+
+.OurValuesDescription {
+    color: #F7F7F7;
+    font-weight: 400;
+    font-family: PT_Mono;
+    font-size: 36px;
+    line-height: 54px;
+    width: 585px;
+}
+
+

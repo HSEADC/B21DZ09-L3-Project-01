@@ -40,14 +40,18 @@
                 <div class="line">
                     <span>02</span>
                     <div class="subline">
-                    <%= form.label :telegram, "МОЙ ПОЗЫВНОЙ В ТЕЛЕГРАМ" %>
+                    <%= form.label :telegram do %>
+                        МОЙ ПОЗЫВНОЙ <br class="phone"> В ТЕЛЕГРАМ
+                    <% end %>
                     <%= form.text_field :telegram, placeholder:"@NAME_NAME" %>
                     </div><label for="telegram" class="dot">,</label>
                 </div>
                 <div class="line">
                     <span>03</span>
                     <div class="subline">
-                    <%= form.label :site, "СТРАНИЧКА/АККАУНТ МОЕГО БРЕНДА" %>
+                    <%= form.label :site do %>
+                        СТРАНИЧКА/АККАУНТ <br class="phone"> МОЕГО БРЕНДА
+                        <% end %>
                     <%= form.text_field :site, placeholder:"BRAND.COM" %>
                     </div><label for="site" class="dot">.</label>
                 </div>
