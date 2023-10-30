@@ -27,8 +27,8 @@
             </article>
         </div>
 
-        <turbo-frame id="contact_form">
-        <%= form_with url: "/contacts", method: :post do |form| %>
+        <%= turbo_frame_tag @sub do %>
+        <%= form_with model: @sub, method: :post do |form| %>
             <div class="connect">
                 <div class="line small">
                     <span>01</span>
@@ -62,7 +62,8 @@
                         <%=image_tag "arrow.png", alt:"arrow", class:"phone", style:"width: 56px; height: 56px;" %>
                 <% end %>
         <% end %>
-        </turbo-frame>
+        <% end %>
+        
     </div>
 </div>
 </main>

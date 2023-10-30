@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_29_142106) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_30_101243) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -42,6 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_29_142106) do
     t.datetime "updated_at", null: false
     t.string "author"
     t.string "post_image"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "telegram", null: false
+    t.string "site", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "comments", "posts"
