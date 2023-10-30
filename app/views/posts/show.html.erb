@@ -16,9 +16,9 @@
 
 
 	<h2>Add a comment:</h2>
-	<%= render "comments/form" %>
+	<%= render "comments/form", post_id: @post.id %>
 
 <p>
 	<strong>Author:</strong>
-	<%= @post.author %>
+	<%= @post.user.email %>
 </p>

@@ -12,18 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label :commenter, style: "display: block" %>
-    <%= form.text_field :commenter %>
-  </div>
-
-  <div>
     <%= form.label :body, style: "display: block" %>
     <%= form.text_area :body %>
   </div>
 
   <div>
-    <%= form.label :post_id, style: "display: block" %>
-    <%= form.text_field :post_id %>
+    <%= form.hidden_field :post_id, value: @comment.post_id || post_id %>
   </div>
 
   <div>
