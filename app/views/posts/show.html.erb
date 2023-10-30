@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @post %>
+
+<%= link_to "New Comment", new_post_comment_path(@post) %>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<div>
+  <%= link_to "Back to posts", posts_path %>
+
+  <% if can? :manage, @post %> 
+  <%= button_to "Delete this post", @post, data: {turbo_method: :delete}%>
+  <%= link_to "Edit this post", edit_post_path(@post) %>
+<% end %>
+</div>
+
+
+	<h2>Add a comment:</h2>
+	<%= render "comments/form", post_id: @post.id %>
+
+<p>
+	<strong>Author:</strong>
+	<%= @post.user.email %>
+</p>

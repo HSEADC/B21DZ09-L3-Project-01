@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SampleProject2023</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +12,42 @@
   </head>
 
   <body>
+  <header> 
+  <%= link_to "Главная", welcome_index_path %>
+  <%= link_to "О нас", welcome_about_path %>
+  <%= link_to "Посты", posts_path %>
+  <% if user_signed_in? %>
+  <%= link_to current_user.email, edit_user_registration_path %>
+  <%= link_to "logout", destroy_user_session_path, data: {turbo_method: :delete} %>
+  <% else %>
+  <%= link_to "login", new_user_session_path %>
+  <%= link_to "registr", new_user_registration_path %>
+  <% end %>
+
+  </header>
+
     <%= yield %>
-  </body>
+    <footer>
+        <div class="about">
+            <div class="about_container">
+                <div class="logo"></div>
+                <article>
+                    <h3>KEEP IN TOUCH!</h3>
+                    <div class="keep_in_touch">
+                        <p>
+                            <a href="">Маркетплейс</a>
+                            <a href="">favias.market@yandex.ru</a>
+                            
+                        </p>
+                        <p>
+                            <a href="">Группа VK</a> <br class="phone">
+                            <a href="">YouTube канал</a>
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </footer>
+    <div class="planet"></div>
+</body>
 </html>
