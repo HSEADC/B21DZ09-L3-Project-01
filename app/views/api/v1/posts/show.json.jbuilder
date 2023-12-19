@@ -4,3 +4,6 @@ json.comments @comments do |comment|
     json.user_email comment.user.email
     json.body comment.body
 end
+
+json.liked @liked
+json.likes_count @post.likes_count

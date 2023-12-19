@@ -16,6 +16,7 @@ def seed
   create_posts(10)
   create_comments(2..8)
   create_subscriptions(10)
+  create_likes(2..20)
 end
 
 def create_users(quantity)
@@ -70,4 +71,14 @@ def create_subscriptions(quantity)
     Subscription.create(name: Faker::Name.name, telegram: "@#{Faker::Internet.username}", site: Faker::Internet.url)
   end
 end
+
+def create_likes(quantity)
+  Post.all.each do |post|
+    quantity.to_a.sample.times do
+      like = PostLike.create(post_id: post.id, user: @users.sample)
+      puts "Like with id #{like.id} for post with id #{like.post_id} just created"
+    end
+  end
+end
+
 seed

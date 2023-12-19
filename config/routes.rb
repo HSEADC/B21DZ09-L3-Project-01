@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         resources :comments, controller: 'api/v1/posts/comments' do
           post 'append-child', action: :append_child
         end
+        resources :likes, controller: "api/v1/posts/likes", only: [:create, :destroy]
       end
     end
   end

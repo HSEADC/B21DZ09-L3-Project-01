@@ -4,10 +4,21 @@ class Api::V1::PostsController < Api::V1::ApplicationController
 
     def index
         @posts = Post.all
+        relation = PostLike.where(post_id: @posts.map(&:id))        
+        relation = relation.where(user_id: params[:user_id]) if params[:user_id].present?
+        @post_likes = {}.tap do |hash|            
+            relation.each do |like|
+                hash[like.post_id] = {
+                    liked: params[:user_id].present? ? like.id : nil, 
+                    likes_count: like.post.likes_count
+            }
+            end
+        end
     end
    
     def show
         @comments = @post.comments
+        @liked = @post.post_likes.where(user_id: params[:user_id]).present?
     end
 
     def create
