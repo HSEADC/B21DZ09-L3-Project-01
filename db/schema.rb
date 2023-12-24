@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_19_145912) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_19_160740) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -34,6 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_145912) do
     t.integer "user_id"
     t.integer "parent_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "subscriber_id"
+    t.integer "publisher_id"
+    t.index ["publisher_id"], name: "index_followers_on_publisher_id"
+    t.index ["subscriber_id"], name: "index_followers_on_subscriber_id"
   end
 
   create_table "post_likes", force: :cascade do |t|

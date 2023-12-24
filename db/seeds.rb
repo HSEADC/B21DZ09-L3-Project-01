@@ -17,6 +17,7 @@ def seed
   create_comments(2..8)
   create_subscriptions(10)
   create_likes(2..20)
+  create_followers(5)
 end
 
 def create_users(quantity)
@@ -78,6 +79,19 @@ def create_likes(quantity)
       like = PostLike.create(post_id: post.id, user: @users.sample)
       puts "Like with id #{like.id} for post with id #{like.post_id} just created"
     end
+  end
+end
+
+
+def create_followers(quantity)  
+  count = 0
+  while count != quantity    
+    u1 = @users.sample
+    u2 = @users.sample    
+    next if u1 == u2
+    follower = Follower.create(subscriber: u1, publisher: u2)
+    count += 1   
+    puts "Follower with id #{follower.id} with subscriber id #{follower.subscriber_id} and publisher id #{follower.publisher_id}"
   end
 end
 
