@@ -32,6 +32,11 @@
     <%= form.file_field :post_image %>
   </div>
 
+    <div>
+    <%= form.label :tag_list, style: "display: block" %>
+    <%= form.text_field :tag_list, value: post.tag_list %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

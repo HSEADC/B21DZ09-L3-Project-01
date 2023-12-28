@@ -1,102 +1,178 @@
-<main class ="About_main">
-    <div class="InvitationImage">
-        <p class="Invitation">ПРОЕКТ FAVIAS ОБЪЕДИНЯЕТ ВОСХОДЯЩИЕ БРЕНДЫ ОДЕЖДЫ ИЗ
-        РОССИИ И СНГ, ПРЕДОСТАВЛЯЯ ЛОКАЛЬНЫМ ДИЗАЙНЕРАМ ЕДИНУЮ ПЛАТФОРМУ ДЛЯ ПРОДВИЖЕНИЯ.
-        ОБЕСПЕЧИВАЕМ СОСТЫКОВКУ БРЕНДОВ И СТРИТВИРЩИКОВ: У НАС КАЖДЫЙ ЗЕМЛЯНИН НАЙДЕТ «ТУ САМУЮ» ВЕЩЬ </p>
-    </div>
-    <div class="OurValues">
-        <h2 class="OurValuesTitle">НАШИ ЦЕННОСТИ</h2>
-        <div class="OurValuesContainer">
-        <ul class="ValuesList">
-            <li class="FirstValue">Улетный стиль</li>
-            <li class="FirstValue">Яркая индивидуальность</li>
-            <li class="FirstValue">Безапелляционное качество</li>
-            <li class="FirstValue">Притягивающее комьюнити</li>
-
-            <div class="ShowContainer">
-            <p class="Show_name">ШОУ «ОДИН ДЕНЬ С БРЕНДОМ»</p>
-            <p class="Show_name_2"> Episode #1 Favias X at.wrldwide </p>
-            <%=image_tag "girl.png", alt:"girl"%>
-            <p class="Showlink">Смотреть выпуск на YouTube</p>
-        </ul>
-        <p class="OurValuesDescription">ЕСТЬ КОНТАКТ! КОМАНДА&nbsp;FAVIAS УМЕЕТ СЛЫШАТЬ И&nbsp;СЛУШАТЬ. МЫ&nbsp;ВЫСТРАИВАЕМ ПАРТНЕРСКИЕ ОТНОШЕНИЯ&nbsp;С&nbsp;БРЕНДАМИ И&nbsp;ПООЩРЯЕМ ВЫХОД
-        ЗА&nbsp;РАМКИ СТАНДАРТОВ&nbsp;ПОЗИЦИОНИРОВАНИЯ НА&nbsp;МАРКЕТПЛЕЙСЕ:&nbsp;СНИМАЕМ ШОУ ОДИН&nbsp;ДЕНЬ&nbsp;С&nbsp;БРЕНДОМ И&nbsp;ЗАПУСКАЕМ САЙТ-ПОРТФОЛИО ДЛЯ ДИЗАЙНЕРОВ ОДЕЖДЫ.</p>
-        </div>
-    </div>
-    <div class="Portfolio_container">
-    <h2 class="OurValuesTitle">СОБИРАЕМ ЗВЕЗДНОЕ ПОРТФОЛИО</h2>
-    <div class="PortfolioStrings">
-    <h2 class="FirstString">ПОКАЖИ САМЫЕ КРУТЫЕ ПРОЕКТЫ</h2>
-    <h2 class="FirstString">РАССКАЖИ ИСТОРИИ СОЗДАНИЯ КОЛЛЕКЦИЙ</h2>
-    <h2 class="FirstString">ПОЙМАЙ ВОЛНУ ЛАЙКОВ И РЕПОСТОВ</h2>
-    <%=image_tag "PortfolioArrows.png", class: "PortfolioArrows", alt:"PortfolioArrows"%>
-    </div>
-
-    <div class="PortfolioPhotoContainer">
-    <div class="FirstRowPhotos">
-    <div class="FirstColumnContainer">
-    <div class ="DesignCommentContainer">
-    <p class="DesignCommentTitle">КОММЕНТАРИЙ ДИЗАЙНЕРА</p>
-    <p class="DesignComment">Создавая это худи хотелось уйти от длинных оверсайз худи и попробовать что-то новое и так вышел укорочённый интересный силуэт.</p>
-    </div>
-    <p class="DesignBy">Perforated gray hoodie Designed by ACT brand</p>
-    </div>
-    <%=image_tag "PortfolioMan.png", class: "PortfolioMan", alt:"PortfolioMan"%>
-    <div class="ThirdColumnContainer">
-    <p class="DesignBy">T-Shirt «HORNY» Designed&nbsp;by&nbsp;at.wrldwide</p>
-    </div>
-    </div>
-    
-    <div class="SecondRowPhotos"> 
-    <%=image_tag "SportBrandPhoto.png", class: "SportBrandPhoto", alt:"SportBrandPhoto"%>
-    <%=image_tag "Hornytshirt.png", class: "Hornytshirt", alt:"Hornytshirt"%>
-    <div class="SecondColumnContainer">
-    <div class ="DesignCommentContainer">
-    <p class="DesignCommentTitle">КОММЕНТАРИЙ ДИЗАЙНЕРА</p>
-    <p class="DesignComment">Моя первая футболка, которую я создавал 4 года в&nbsp;соавторстве с буддийскими монахами.</p>
-    </div>
-    </div>
-
-    </div>
-    </div>
-    </div>
-        <div class="container_about">
-            <h2 class="OurValuesTitle LastTitleAbout">ПОЛЕТЕЛИ С НАМИ</h2>
-          <%= turbo_frame_tag @sub do %>
-        <%= form_with model: @sub, method: :post do |form| %>
-            <div class="connect">
-                <div class="line small">
-                    <span>01</span>
-                    <div class="subline">
-                        <%= form.label :name,"МЕНЯ ЗОВУТ" %>
-                        <%= form.text_field :name, placeholder:"РУБИ РОД" %>
-                    </div><label for="name" class="dot">,</label>
+<%content_for :head do%>
+<%= stylesheet_link_tag "about", "data-turbo-track": "reload"%>
+<%end%>
+<main>
+        <article class="project">
+            <p> <span>проект FAVIAS объединяет </span><br>восходящие бренды одежды из России и СНГ,
+                предоставляя<br>локальным дизайнерам единую платформу для продвижения.<br>
+                обеспечиваем состыковку брендов и стритвирщиков:
+                у нас<br>каждый землянин найдет «ту самую» вещь. </p>
+        </article>
+        <article class="value">
+            <h2>НАШИ ЦЕННОСТИ</h2>
+            <div class="left-right">
+                <div class="left">
+                    <div class="list">
+                        <div><span>01</span><p>Улетный стиль</p></div>
+                        <div><span>02</span><p>Яркая индивидуальность</p></div>
+                        <div><span>03</span><p>Безапелляционное качество</p></div>
+                        <div><span>04</span><p>Притягивающее комьюнити</p></div>
+                    </div>
+                    <div class="show">
+                        <p class="show_p">шоу «один день с брендом»</p>
+                        <div class="episode">
+                            <p class="show_p">Episode #1</p><p class="show_p">Favias X at.wrldwide</p>
+                        </div>
+                        <div class="show_img"></div>
+                        <p class="lil_foot">Смотреть выпуск на YouTube</p>
+                    </div>
                 </div>
-                <div class="line">
-                    <span>02</span>
-                    <div class="subline">
-                    <%= form.label :telegram do %>
-                        МОЙ ПОЗЫВНОЙ <br class="phone"> В ТЕЛЕГРАМ
-                    <% end %>
-                    <%= form.text_field :telegram, placeholder:"@NAME_NAME" %>
-                    </div><label for="telegram" class="dot">,</label>
+                <p class="value_text">есть контакт!<br>
+                    Команда FAVIAS умеет<br>
+                    слышать и слушать.<br>
+                    мы выстаиваем партнерские<br>
+                    отношения с брендами<br>
+                    и Поощряем выход за рамки<br>
+                    стандартов позиционирования<br>
+                    на маркетплейсе: снимаем<br>
+                    шоу «один день с брендом»<br>
+                    и запускаем сайт-портфолио<br>
+                    для дизайнеров одежды.</p>
+            </div>
+        </article>
+        <article class="portfolio">
+            <h2>СОБИРАЕМ<br class="smart"> ЗВЕЗДНОЕ ПОРТФОЛИО</h2>
+            <div class="ladder">
+                <div class="stage stage_left">
+                    <p class="stage_small">01</p>
+                    <p class="stage_big">покажи самые крутые проекты</p>
                 </div>
-                <div class="line">
-                    <span>03</span>
-                    <div class="subline">
-                    <%= form.label :site do %>
-                        СТРАНИЧКА/АККАУНТ <br class="phone"> МОЕГО БРЕНДА
-                        <% end %>
-                    <%= form.text_field :site, placeholder:"BRAND.COM" %>
-                    </div><label for="site" class="dot">.</label>
+                <div class="stage stage_center">
+                    <p class="stage_small">02</p>
+                    <p class="stage_big">расскажи истории создания коллекций</p>
+                </div>
+                <div class="stage stage_right">
+                    <p class="stage_small">03</p>
+                    <p class="stage_big">поймай волну лайков и репостов</p>
+                </div>
+                <div class="vector1"></div>
+                <div class="vector2"></div>
+            </div>
+        </article>
+        <article class="footage">
+            <div class="container1">
+                <div class="about">
+                    <p class="title">Комментарий дизайнера</p>
+                    <p class="about_text">Создавая это худи хотелось<br>
+                        уйти от длинных оверсайз<br>
+                        худи и попробовать что-то<br>
+                        новое и так вышел<br>
+                        укорочённый интересный<br>
+                        силуэт.</p>
+                </div>
+                <div class="hoodie"></div>
+                <p class="item">Perforated gray hoodie<br>Designed by ACT brand</p>
+            </div>
+            <div class="container2">
+                <div class="t_shirt"><div class="t_shirt_photo"></div></div>
+                <p class="item">T-Shirt «HORNY»<br>Designed by at.wrldwide</p>
+                <div class="about">
+                    <p class="title">Комментарий дизайнера</p>
+                    <p class="about_text">Моя первая футболка,<br>
+                        которую я создавал 4 года<br>
+                        в соавторстве с буддийскими<br>
+                        монахами.</p>
                 </div>
             </div>
-                <%= form.button do %>
-                    <%=image_tag "arrow.png", alt:"arrow", class:"tablet" %>
-                        <p>Отправь нам сигнал,<br class="tablet">и мы <br class="phone">ответим в ближайшее время!<br>Канал связи — Telegram.</p>
-                        <%=image_tag "arrow.png", alt:"arrow", class:"phone", style:"width: 56px; height: 56px;" %>
-                <% end %>
-        <% end %>
-        <% end %>
-        </div>
-</main>
+            <div class="container3">
+                <div class="nick"><div class="nick_photo"></div></div>
+                <div class="about">
+                    <p class="title">Satellite: Sport Brand  </p>
+                    <p class="item">Бланковый шик и стиль<br>на каждый день</p>
+                </div>
+            </div>
+        </article>
+        <article class="orbit">
+            <h2>уже На орбите FAVIAS</h2>
+            <div class="line">
+                <p class="subs">22.2K подписчиков</p>
+                <p class="brand">SPort brand</p>
+            </div>
+            <div class="line">
+                <p class="subs">44.9K подписчиков</p>
+                <p class="brand">Murmurizm</p>
+            </div>
+            <div class="line">
+                <p class="subs">19K подписчиков</p>
+                <p class="brand">coeval</p>
+            </div>
+            <div class="line">
+                <p class="subs">2.3K подписчиков</p>
+                <p class="brand">at.wrldwide</p>
+            </div>
+            <div class="line">
+                <p class="subs">2.3K подписчиков</p>
+                <p class="brand">ACt</p>
+            </div>
+            <div class="line big_line">
+                <a class="catalog" href="">смотреть полный каталог брендов<div class="arrow"></div></a>
+            </div>
+        </article>
+        <article class="queue_body">
+            <p> <span>Если на некое тело начинают</span><br>
+                действовать силы, то данное тело приходит в состояние<br>
+                движения по инерции. возможно, это движение не всегда<br>
+                равномерно и прямолинейно, зато весьма результативно.</p>
+        </article>
+        <article class="team">
+            <h2>Центр инерции — команда фаундеров</h2>
+            <div class="team_container">
+                <div class="member">
+                    <div class="danya"></div>
+                    <p class="name">Даниил <br class="laptop">Шерстюков</p>
+                    <div class="about">
+                        <p>Co-Founder,<br>CEO Favias</p>
+                        <p>4-х летний опыт работы<br>человеком-оркестром</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="danya"><div class="ira"></div></div>
+                    <p class="name">Ирина <br class="laptop">Рыбина</p>
+                    <div class="about">
+                        <p>Co-Founder,<br>CDO, CCO Favias</p>    
+                        <p>5 лет в графическом<br>и веб-дизайне</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="with_us">
+            <h2>Полетели с нами</h2>
+            <form action="" class="connect">
+                <div class="input">
+                    <span>01</span>
+                    <div class="subline">
+                        <label for="name">МЕНЯ ЗОВУТ</label>
+                        <input type="text" name="name" placeholder="РУБИ РОД">
+                    </div><label for="name" class="dot">,</label>
+                </div>
+                <div class="input">
+                    <span>02</span>
+                    <div class="subline">
+                        <label for="telegram">МОЙ ПОЗЫВНОЙ В ТЕЛЕГРАМ</label>
+                        <input type="text" name="telegram" placeholder="@NAME_NAME">
+                    </div><label for="telegram" class="dot dot2">,</label>
+                </div>
+                <div class="input">
+                    <span>03</span>
+                    <div class="subline">
+                        <label for="site">СТРАНИЧКА/АККАУНТ МОЕГО БРЕНДА</label>
+                        <input type="text" name="site" placeholder="BRAND.COM">
+                    </div><label for="site" class="dot dot3">.</label>
+                </div>
+                <button type="submit">
+                    <div class="button_arrow"></div>
+                    <p>Отправь нам сигнал,<br>и мы ответим в ближайшее время!<br>Канал связи — Telegram.</p>
+                </button>
+            </form>
+        </article>
+    </main>

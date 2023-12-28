@@ -25,6 +25,15 @@ Rails.application.routes.draw do
         end
         resources :likes, controller: "api/v1/posts/likes", only: [:create, :destroy]
       end
+
+      resources :users, controller: "api/v1/users" do
+        post 'follow', action: :follow
+        delete 'unfollow', action: :unfollow
+      end
+
+      resources :feed, controller: "api/v1/feed", only: [:index]
+    
+
     end
   end
 end

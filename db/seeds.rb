@@ -9,6 +9,7 @@
 @raw_text = 'Дом Наркомфина — один из знаковых памятников архитектуры советского авангарда и конструктивизма. Построен в 1928—1930 годах по проекту архитекторов Моисея Гинзбурга, Игнатия Милиниса и инженера Сергея Прохорова для работников Народного комиссариата финансов СССР (Наркомфина). Автор замысла дома Наркомфина Гинзбург определял его как «опытный дом переходного типа». Дом находится в Москве по адресу: Новинский бульвар, дом 25, корпус 1. С начала 1990-х годов дом находился в аварийном состоянии, был трижды включён в список «100 главных зданий мира, которым грозит уничтожение». В 2017—2020 годах отреставрирован по проекту АБ «Гинзбург Архитектс», функционирует как элитный жилой дом. Отдельно стоящий «Коммунальный блок» (историческое название) планируется как место проведения публичных мероприятий.'
 @words = @raw_text.downcase.gsub(/[—.—,«»:()]/, '').gsub(/  /, ' ').split(' ')
 @users = []
+@tags= ["новинка","бестселлер", "куртка", "свитшот", "бомбер"]
 
 def seed
   reset_db
@@ -17,7 +18,7 @@ def seed
   create_comments(2..8)
   create_subscriptions(10)
   create_likes(2..20)
-  create_followers(5)
+  create_followers(20)
 end
 
 def create_users(quantity)
@@ -54,6 +55,9 @@ end
 def create_posts(quantity)
   quantity.times do
     post = Post.create(title: create_sentence, content: create_sentence, post_image: upload_random_image, user: @users.sample, name: create_sentence)
+    tags = @tags.sample(rand(1..4))
+    post.tag_list = tags
+    post.save 
     puts "Post with id #{post.id} just created"
   end
 end

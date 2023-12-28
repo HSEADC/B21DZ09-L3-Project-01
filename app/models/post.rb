@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+	acts_as_taggable_on :tags
 	validates :name, :presence => true
 	validates :title, :presence => true, :length => { :minimum => 5 }
 
@@ -9,4 +10,5 @@ class Post < ApplicationRecord
 	def likes_count 
 		post_likes.size
 	end
+	
 end
