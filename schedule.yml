@@ -1,0 +1,5 @@
+create_digest:
+  every: 10s
+  queue: digest
+  class: DigestJob
+  description: "This job will auto-create digest"

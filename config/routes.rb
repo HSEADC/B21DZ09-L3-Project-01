@@ -1,5 +1,12 @@
+require 'resque/server'
+require 'resque/scheduler'
+require 'resque/scheduler/server'
+
 Rails.application.routes.draw do
   devise_for :users
+
+  mount Resque::Server.new, :at => "/resque"
+
   resources :comments
 
   resources :posts do
