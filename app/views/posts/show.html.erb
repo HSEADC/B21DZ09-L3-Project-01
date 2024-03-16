@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-
+<%= link_to "Back", root_path %>
 <%= render @post %>
 
 <%= link_to "New Comment", new_post_comment_path(@post), class: "manage_button" %>
@@ -15,6 +15,22 @@
   <%= link_to "Edit this post", edit_post_path(@post), class: "manage_button" %>
 <% end %>
 </div>
+
+<button class='manage_button' onclick="copyContent()">
+click me!
+</button>
+
+<script>
+ var copyText = window.location.href
+ const copyContent = async () => {
+    try {
+      await navigator.clipboard.writeText(copyText);
+      console.log('Content copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
+</script>
 
 
 	<h2>Add a comment:</h2>

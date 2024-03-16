@@ -10,5 +10,4 @@ class Post < ApplicationRecord
 	def likes_count 
 		post_likes.size
 	end
-	
 end

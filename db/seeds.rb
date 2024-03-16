@@ -12,7 +12,7 @@
 @tags= ["новинка","бестселлер", "куртка", "свитшот", "бомбер"]
 
 def seed
-  reset_db
+  #reset_db
   create_users(10)
   create_posts(10)
   create_comments(2..8)
@@ -23,7 +23,7 @@ end
 
 def create_users(quantity)
   quantity.times do |i|
-    user= User.create(email: Faker::Internet.email, password: "123456")
+    user= User.create(email: Faker::Internet.email, password: "123456", name: Faker::Internet.user_name, logo: upload_random_user_logo)
     puts "user with id #{user.id} and email #{user.email}"
     @users << user
   end
@@ -48,7 +48,13 @@ end
 
 def upload_random_image
   uploader = PostImageUploader.new(Post.new, :post_image)
-  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/posts', '*')).sample))
+  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, '/uploads/post/post_image/1', '*')).sample))
+  uploader
+end
+
+def upload_random_user_logo
+  uploader = LogoUploader.new(User.new, :logo)
+  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, '/uploads/post/post_image/1', '*')).sample))
   uploader
 end
 

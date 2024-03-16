@@ -3,7 +3,7 @@ require 'resque/scheduler'
 require 'resque/scheduler/server'
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   mount Resque::Server.new, :at => "/resque"
 

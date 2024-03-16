@@ -1,69 +1,31 @@
-<main>
-<div class="h1_border phone">
-    <h1>
-        ПРИСОЕДИНЯЙСЯ <br class="phone">К FAVIAS —<br>ПЛАТФОРМЕ РАЗВИТИЯ ЛОКАЛЬНЫХ БРЕНДОВ
-    </h1>
-</div>
-<div class="main">
-    <h1 class="tablet">
-        ПРИСОЕДИНЯЙСЯ <br class="phone">К FAVIAS —<br>ПЛАТФОРМЕ РАЗВИТИЯ ЛОКАЛЬНЫХ БРЕНДОВ
-    </h1>
-    <div class="container">
-        <div class="list">
-            <article>
-            <%=image_tag "racket.png", alt:"racket"%>
-                <h2>ЗАПУСКАЕМ БРЕНДА<br>НА ОРБИТУ УСПЕХА</h2>
-                <p>Продвигаем твой бренд<br class="tablet">на нашем<br class="phone">маркетплейсе</p>
-            </article>
-            <article>
-                <%=image_tag "linear.png", alt:"linear"%>
-                <h2>СОЗДАЕМ ЗВЕЗДНОЕ<br>ПОРТФОЛИО</h2>
-                <p>Запускаем сайт-портфолио<br>для дизайнеров одежды</p>
-            </article>
-            <article>
-                <%=image_tag "sputnik.png", alt:"sputnik"%>
-                <h2>РАСШИРЯЕМ ВСЕЛЕННУЮ<br>СТРИТВИРА</h2>
-                <p>Объединяем аудиторию<br class="tablet">брендов <br class="phone">в комьюнити</p>
-            </article>
-        </div>
+<main> 
+  <div class="posts-wrapper">
+  <div id="posts"> 
+  <% @posts.each_with_index do |post, i| %> 
+   <% if i % 9 == 0 %> 
+   <div class="posts-container"> 
+    <% end %> 
+    <%= link_to post, class: "post-#{i % 9}" do %>
+    <div class="post-container-"> 
+      <% if post.post_image.present? %> 
+        <%= image_tag post.post_image.url %> 
+      <% end %> 
+      <div class='posts-item-content'> 
+        <% if post.user.logo.present? %> 
+          <%= image_tag post.user.logo.url, class: "post-user-logo" %> 
+        <% end %> 
+ 
+        <p class="post-user-text"> 
+          <%= post.user.name %> 
+        </p> 
 
-        <%= turbo_frame_tag @sub do %>
-        <%= form_with model: @sub, method: :post do |form| %>
-            <div class="connect">
-                <div class="line small">
-                    <span>01</span>
-                    <div class="subline">
-                        <%= form.label :name,"МЕНЯ ЗОВУТ" %>
-                        <%= form.text_field :name, placeholder:"РУБИ РОД" %>
-                    </div><label for="name" class="dot">,</label>
-                </div>
-                <div class="line">
-                    <span>02</span>
-                    <div class="subline">
-                    <%= form.label :telegram do %>
-                        МОЙ ПОЗЫВНОЙ <br class="phone"> В ТЕЛЕГРАМ
-                    <% end %>
-                    <%= form.text_field :telegram, placeholder:"@NAME_NAME" %>
-                    </div><label for="telegram" class="dot">,</label>
-                </div>
-                <div class="line">
-                    <span>03</span>
-                    <div class="subline">
-                    <%= form.label :site do %>
-                        СТРАНИЧКА/АККАУНТ <br class="phone"> МОЕГО БРЕНДА
-                        <% end %>
-                    <%= form.text_field :site, placeholder:"BRAND.COM" %>
-                    </div><label for="site" class="dot">.</label>
-                </div>
-            </div>
-                <%= form.button do %>
-                    <%=image_tag "arrow.png", alt:"arrow", class:"tablet" %>
-                        <p>Отправь нам сигнал,<br class="tablet">и мы <br class="phone">ответим в ближайшее время!<br>Канал связи — Telegram.</p>
-                        <%=image_tag "arrow.png", alt:"arrow", class:"phone", style:"width: 56px; height: 56px;" %>
-                <% end %>
-        <% end %>
-        <% end %>
-        
-    </div>
-</div>
+      </div> 
+      </div>
+
+    <% end %> 
+    <% if i % 9 == 8 %> 
+      </div> 
+    <% end %> 
+  <% end %> 
+  </div>
 </main>

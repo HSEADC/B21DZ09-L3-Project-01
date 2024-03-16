@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @sub = Subscription.new
+    @posts = Post.includes(:user).order(created_at: :desc).limit(100)
   end
 
   def about 
@@ -8,6 +8,5 @@ class WelcomeController < ApplicationController
   end
 
   def contacts
-pp params
   end
 end

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload"%>
+  </head>
+  <body>
+    <h1>Привет, <%= @user.email %></h1>
+
+    <h1>Posts</h1>
+
+    <div id="posts">
+      <% @posts.each do |post| %>
+        <%= render post %>
+        <p>
+          <%= link_to "Show this post", post_url(post), class: "manage_button"  %>
+        </p>
+      <% end %>
+    </div>
+  </body>
+</html>

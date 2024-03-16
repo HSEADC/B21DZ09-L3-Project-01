@@ -1,8 +1,7 @@
 class DigestJob
   def self.perform
-    user = User.find 10
-    r = rand(100)
-    user.email = "user-#{r}@mail.ru"
-    user.save
+    User.find_each do |user|
+      DigestMailer.digest(user).deliver_later
+    end
   end
 end
