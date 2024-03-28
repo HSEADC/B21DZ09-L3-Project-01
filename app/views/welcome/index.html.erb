@@ -1,31 +1,178 @@
-<main> 
-  <div class="posts-wrapper">
-  <div id="posts"> 
-  <% @posts.each_with_index do |post, i| %> 
-   <% if i % 9 == 0 %> 
-   <div class="posts-container"> 
-    <% end %> 
-    <%= link_to post, class: "post-#{i % 9}" do %>
-    <div class="post-container-"> 
-      <% if post.post_image.present? %> 
-        <%= image_tag post.post_image.url %> 
-      <% end %> 
-      <div class='posts-item-content'> 
-        <% if post.user.logo.present? %> 
-          <%= image_tag post.user.logo.url, class: "post-user-logo" %> 
-        <% end %> 
- 
-        <p class="post-user-text"> 
-          <%= post.user.name %> 
-        </p> 
-
-      </div> 
-      </div>
-
-    <% end %> 
-    <% if i % 9 == 8 %> 
-      </div> 
-    <% end %> 
-  <% end %> 
-  </div>
-</main>
+<%content_for :head do%>
+<%= stylesheet_link_tag "about", "data-turbo-track": "reload"%>
+<%end%>
+<main>
+        <article class="project">
+            <p> <span>проект FAVIAS объединяет </span><br>восходящие бренды одежды из России и СНГ,
+                предоставляя<br>локальным дизайнерам единую платформу для продвижения.<br>
+                обеспечиваем состыковку брендов и стритвирщиков:
+                у нас<br>каждый землянин найдет «ту самую» вещь. </p>
+        </article>
+        <article class="value">
+            <h2>НАШИ ЦЕННОСТИ</h2>
+            <div class="left-right">
+                <div class="left">
+                    <div class="list">
+                        <div><span>01</span><p>Улетный стиль</p></div>
+                        <div><span>02</span><p>Яркая индивидуальность</p></div>
+                        <div><span>03</span><p>Безапелляционное качество</p></div>
+                        <div><span>04</span><p>Притягивающее комьюнити</p></div>
+                    </div>
+                    <div class="show">
+                        <p class="show_p">шоу «один день с брендом»</p>
+                        <div class="episode">
+                            <p class="show_p">Episode #1</p><p class="show_p">Favias X at.wrldwide</p>
+                        </div>
+                        <div class="show_img"></div>
+                        <p class="lil_foot">Смотреть выпуск на YouTube</p>
+                    </div>
+                </div>
+                <p class="value_text">есть контакт!<br>
+                    Команда FAVIAS умеет<br>
+                    слышать и слушать.<br>
+                    мы выстаиваем партнерские<br>
+                    отношения с брендами<br>
+                    и Поощряем выход за рамки<br>
+                    стандартов позиционирования<br>
+                    на маркетплейсе: снимаем<br>
+                    шоу «один день с брендом»<br>
+                    и запускаем сайт-портфолио<br>
+                    для дизайнеров одежды.</p>
+            </div>
+        </article>
+        <article class="portfolio">
+            <h2>СОБИРАЕМ<br class="smart"> ЗВЕЗДНОЕ ПОРТФОЛИО</h2>
+            <div class="ladder">
+                <div class="stage stage_left">
+                    <p class="stage_small">01</p>
+                    <p class="stage_big">покажи самые крутые проекты</p>
+                </div>
+                <div class="stage stage_center">
+                    <p class="stage_small">02</p>
+                    <p class="stage_big">расскажи истории создания коллекций</p>
+                </div>
+                <div class="stage stage_right">
+                    <p class="stage_small">03</p>
+                    <p class="stage_big">поймай волну лайков и репостов</p>
+                </div>
+                <div class="vector1"></div>
+                <div class="vector2"></div>
+            </div>
+        </article>
+        <article class="footage">
+            <div class="container1">
+                <div class="about">
+                    <p class="title">Комментарий дизайнера</p>
+                    <p class="about_text">Создавая это худи хотелось<br>
+                        уйти от длинных оверсайз<br>
+                        худи и попробовать что-то<br>
+                        новое и так вышел<br>
+                        укорочённый интересный<br>
+                        силуэт.</p>
+                </div>
+                <div class="hoodie"></div>
+                <p class="item">Perforated gray hoodie<br>Designed by ACT brand</p>
+            </div>
+            <div class="container2">
+                <div class="t_shirt"><div class="t_shirt_photo"></div></div>
+                <p class="item">T-Shirt «HORNY»<br>Designed by at.wrldwide</p>
+                <div class="about">
+                    <p class="title">Комментарий дизайнера</p>
+                    <p class="about_text">Моя первая футболка,<br>
+                        которую я создавал 4 года<br>
+                        в соавторстве с буддийскими<br>
+                        монахами.</p>
+                </div>
+            </div>
+            <div class="container3">
+                <div class="nick"><div class="nick_photo"></div></div>
+                <div class="about">
+                    <p class="title">Satellite: Sport Brand  </p>
+                    <p class="item">Бланковый шик и стиль<br>на каждый день</p>
+                </div>
+            </div>
+        </article>
+        <article class="orbit">
+            <h2>уже На орбите FAVIAS</h2>
+            <div class="line">
+                <p class="subs">22.2K подписчиков</p>
+                <p class="brand">SPort brand</p>
+            </div>
+            <div class="line">
+                <p class="subs">44.9K подписчиков</p>
+                <p class="brand">Murmurizm</p>
+            </div>
+            <div class="line">
+                <p class="subs">19K подписчиков</p>
+                <p class="brand">coeval</p>
+            </div>
+            <div class="line">
+                <p class="subs">2.3K подписчиков</p>
+                <p class="brand">at.wrldwide</p>
+            </div>
+            <div class="line">
+                <p class="subs">2.3K подписчиков</p>
+                <p class="brand">ACt</p>
+            </div>
+            <div class="line big_line">
+                <a class="catalog" href="">смотреть полный каталог брендов<div class="arrow"></div></a>
+            </div>
+        </article>
+        <article class="queue_body">
+            <p> <span>Если на некое тело начинают</span><br>
+                действовать силы, то данное тело приходит в состояние<br>
+                движения по инерции. возможно, это движение не всегда<br>
+                равномерно и прямолинейно, зато весьма результативно.</p>
+        </article>
+        <article class="team">
+            <h2>Центр инерции — команда фаундеров</h2>
+            <div class="team_container">
+                <div class="member">
+                    <div class="danya"></div>
+                    <p class="name">Даниил <br class="laptop">Шерстюков</p>
+                    <div class="about">
+                        <p>Co-Founder,<br>CEO Favias</p>
+                        <p>4-х летний опыт работы<br>человеком-оркестром</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="danya"><div class="ira"></div></div>
+                    <p class="name">Ирина <br class="laptop">Рыбина</p>
+                    <div class="about">
+                        <p>Co-Founder,<br>CDO, CCO Favias</p>    
+                        <p>5 лет в графическом<br>и веб-дизайне</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="with_us">
+            <h2>Полетели с нами</h2>
+            <form action="" class="connect">
+                <div class="input">
+                    <span>01</span>
+                    <div class="subline">
+                        <label for="name">МЕНЯ ЗОВУТ</label>
+                        <input type="text" name="name" placeholder="РУБИ РОД">
+                    </div><label for="name" class="dot">,</label>
+                </div>
+                <div class="input">
+                    <span>02</span>
+                    <div class="subline">
+                        <label for="telegram">МОЙ ПОЗЫВНОЙ В ТЕЛЕГРАМ</label>
+                        <input type="text" name="telegram" placeholder="@NAME_NAME">
+                    </div><label for="telegram" class="dot dot2">,</label>
+                </div>
+                <div class="input">
+                    <span>03</span>
+                    <div class="subline">
+                        <label for="site">СТРАНИЧКА/АККАУНТ МОЕГО БРЕНДА</label>
+                        <input type="text" name="site" placeholder="BRAND.COM">
+                    </div><label for="site" class="dot dot3">.</label>
+                </div>
+                <button type="submit">
+                    <div class="button_arrow"></div>
+                    <p>Отправь нам сигнал,<br>и мы ответим в ближайшее время!<br>Канал связи — Telegram.</p>
+                </button>
+            </form>
+        </article>
+    </main>

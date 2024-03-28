@@ -1,11 +1,20 @@
+
 <p style="color: green"><%= notice %></p>
-<%= link_to "Back", root_path %>
+
+<%# <div class="post_row_container"> %>
+<%= link_to "Back", posts_url %>
+
+<div class="post_column_container">
 <%= render @post %>
 
-<%= link_to "New Comment", new_post_comment_path(@post), class: "manage_button" %>
 
-<h2>Comments</h2>
-<%= render @post.comments %>
+
+<div class ="comments_form_container">
+	<%= render "comments/form", post_id: @post.id %>
+</div>
+
+
+<%= render @post.comments.order(created_at: :desc) %>
 
 <div>
   <%= link_to "Back to posts", posts_path, class: "manage_button" %>
@@ -16,27 +25,6 @@
 <% end %>
 </div>
 
-<button class='manage_button' onclick="copyContent()">
-click me!
-</button>
 
-<script>
- var copyText = window.location.href
- const copyContent = async () => {
-    try {
-      await navigator.clipboard.writeText(copyText);
-      console.log('Content copied to clipboard');
-    } catch (err) {
-      console.error('Failed to copy: ', err);
-    }
-  }
-</script>
-
-
-	<h2>Add a comment:</h2>
-	<%= render "comments/form", post_id: @post.id %>
-
-<p>
-	<strong>Author:</strong>
-	<%= @post.user.email %>
-</p>
+</div>
+</div>

@@ -32,4 +32,8 @@ class User < ApplicationRecord
       autor.recent_popular_post
     end.compact
   end
+
+  def post_liked?(post)
+    post_likes.where(post_id: post.id, user_id: self.id).present?
+  end
 end

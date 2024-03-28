@@ -19,7 +19,7 @@ module SampleProject2023
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_job.queue_adapter = :resque
-
+    config.assets.enabled = false
     config.action_mailer.default_url_options = { :host => "localhost:3000" } 
   end
 end

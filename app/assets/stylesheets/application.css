@@ -14,6 +14,151 @@
  *= require_self
  */
 
+body {
+    background-color: #05050A;
+}
+
+/* шапка */
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+body {
+  font-family: 'PT Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+a, button, input, textarea, svg * {
+  transition-duration: 0.2s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.header__container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 30px;
+  height: 70px;
+}
+
+.header__logo {
+  cursor: pointer;
+}
+
+.menu__list {
+  display: flex;
+  column-gap: 30px;
+}
+
+.menu__item {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.menu__link {
+  display: inline-flex; /*для увеличения площади нажатия на ссылки*/
+  column-column-gap: 5px;
+  height: 70px;
+  align-items: center;
+  text-decoration: none;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.search-box__input {
+  background-color: transparent;
+  background-image: url('images/search.svg'); /* добавляем изображение лупы */
+  background-size: 20px; /* размер  лупы */
+  background-repeat: no-repeat;
+  background-position: 10px center; /* позиция изображения внутри input */
+  color: #f7f7f7;
+  border: 1px solid #595e75; /* обводка*/
+  border-radius: 100px; /* радиус границ */
+  padding: 8px 34px; /* отступы внутри input, с учетом картинки лупы */
+  width: 335px; /* ширина input */
+}
+
+/* Стили для иконки лупы внутри input */
+.search-box__input::placeholder {
+  /* добавить нужный шрифт, размер для плейсхолдера*/
+}
+
+.search-box__input:focus {
+  outline: none; /* убираем контур фокуса */
+}
+
+.header__actions {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.notifications__button {
+  background: none; /* Убираем фон кнопки */
+  border: none; /* Убираем границы */
+}
+
+.create__button {
+  font-size: 14px;
+  height: 30px;
+  background-color: #353c4d;
+  border: none;
+  color: #fff;
+  letter-spacing: 2%;
+  line-height: 111%;
+  text-transform: uppercase;
+  padding: 8px 16px;
+}
+
+.create__button:hover {
+  background-color: #3b4153;
+}
+
+.round__button {
+  background: none; /* Убираем фон кнопки */
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center; /* Горизонтальное выравнивание по центру */
+  align-items: center; /* Вертикальное выравнивание по центру */
+  width: 32px;
+  height: 32px;
+}
+
+textarea {
+  background-color: transparent; /* черный цвет фона */
+  border: 1px solid #595e75; /* обводка*/
+  outline: none; /* убираем контур фокуса */
+  resize: none; /* запрещаем изменение размеров textarea */
+  color: #f7f7f7;
+  border-radius: 100px; /* радиус границ */
+  padding: 10px; /* отступы внутри*/
+  width: 335px;
+  height: 40px;
+}
+
+textarea::placeholder {
+  /* Стили для плейсхолдера */
+  display: flex;
+  color: gray;
+  align-items: center;
+}
+
+
+
+
+/* Главная */
+
 .posts-wrapper {
     max-width: 1280px;
     padding: 30px 50px;
@@ -44,8 +189,8 @@
 
 .post-user-text {
     font-family: "Tilda Sans";
+    font-weight: 400;
     font-style: normal;
-    font-weight: 300;
     font-size: 16px;
     line-height: 1;
     color: #FFFFFF;
@@ -177,6 +322,21 @@
 
 /* Страница поста */
 
+.post_row_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.post_column_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.post_page_top_content {
+    display: flex;
+    flex-direction: row;
+}
+
 .post-item-container {
     display: flex;
     flex-direction: row;
@@ -186,6 +346,7 @@
 
 .post-item-image {
     width: 50%;
+    border-radius: 8px;
 }
 
 .post-item-content {
@@ -193,6 +354,8 @@
     flex-direction: column;
     width: 50%;
     padding-left: 16px;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .post-page-wrapper {
@@ -204,12 +367,12 @@ margin: 0 auto;
 }
 
 .top-item-content {
-    padding-bottom: 104px;
 }
 
 .post-item-image img {
     width: 100%;
     height: 100%;
+    border-radius: 8px;
 }
 
 .post-item-title {
@@ -222,23 +385,216 @@ margin: 0 auto;
     color: #FFFFFF;
     margin: 0px;
     max-width: 464px;
+    padding-bottom: 20px;
 }
 
-.post-item-tag {
-   background-color: #595E75;
-   border-radius: 600px;
+.tags_container {
+  display: flex;
+  gap: 6px;
 }
 
 .post-tag-text {
+    display: inline;
     font-family: Tilda Sans;
     font-style: normal;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 32px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
     color: #FFFFFF;
     margin: 0px;
-    padding: 10px 2px 10px 3px;   
+    padding: 2px 10px 4px;
+    background-color: #595E75;
+   border-radius: 600px; 
 }
+
+.post-item-text {
+    font-family: Tilda Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    color: #FFFFFF;
+    margin: 0px;
+    padding: 20px 36px 0px 0px;       
+}
+
+/* Действия с постом */ 
+
+.likes_count_container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    position: relative;
+
+}
+
+.likes_number_container {
+  display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.likes_count {
+    font-family: PT Mono;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+    color: #FFFFFF;
+    margin: 0px;
+}
+
+/* тултип */ 
+
+#link_copied.post-item-text {
+  background-color: #2F5B50;
+  position: absolute;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  border-radius: 2px;
+  bottom: 45px;
+  left: 80px;
+}
+
+.tooltip_text {
+  font-family: Tilda Sans;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+
+/* Комментарии */
+
+/* Комментарии форма добавления */
+
+.comments_form_container {
+padding-top: 40px;
+padding-bottom: 40px;
+}
+
+.input-button-container {
+    display: flex;
+    border: 1px solid #595E75;
+    border-radius: 10px;
+    padding: 0px 20px;
+  }
+  
+  .input-button-container textarea {
+    flex-grow: 1; /* Поле занимает всё доступное пространство */
+    border: none; /* Границы отсутствуют */
+    outline: none; /* Очертание при фокусе отсутствует */
+    background: #000000;
+    font-family: Tilda Sans;
+    font-weight: 400;
+    font-size: 16px;
+    resize: none;
+  }
+
+  #comment_body {
+    color: #595E75;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-button-container input {
+    background: none;
+    border: none;
+    cursor: pointer; /* Курсор в виде указателя */
+    font-family: Tilda Sans;
+    font-weight: 400;
+    font-size: 16px;
+    color: #595E75;
+  }
+ 
+
+  /* Комментарий */
+
+  .comments_item_container {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 32px;
+    gap: 16px;
+  }
+
+  .comments_right_part {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .commentor-picture {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .commentor-picture img {
+    width: 48px;
+    height: 48px;
+    border-radius: 800px;
+  }
+
+  .comment_body_cont {
+    display: flex;
+    flex-direction: column;
+    max-width: 428px;
+  }
+
+  .comment_top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .commentor-email {
+    font-family: Tilda Sans;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600; /* Исправить! */
+    color: #FFFFFF;
+    margin: 0px;
+    padding-bottom: 4px;
+  }
+
+.comments_text {
+    font-family: Tilda Sans;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400; /* Исправить! */
+    color: #FFFFFF;
+    margin: 0px;
+}
+
+.comments_text_date {
+  font-family: Tilda Sans;
+  font-size: 12px;
+  line-height: 20px;
+  color: #595E75;
+}
+
+.manage_button_comment {
+  font-size: 14px;
+    height: 30px;
+    background-color: #353c4d;
+    border: none;
+    color: #fff;
+    letter-spacing: 2%;
+    line-height: 111%;
+    padding: 8px 16px;
+}
+
+.comment_buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+
 
 
 

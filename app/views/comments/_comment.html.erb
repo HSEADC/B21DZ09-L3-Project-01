@@ -1,18 +1,35 @@
-<div id="<%= dom_id comment %>">
-  <p>
-    <strong>User:</strong>
+<div id="<%= dom_id comment %>" class="comments_item_container">
+  
+<div class="comments_right_part">
+  <div class ="commentor-picture">
+    <% if comment.user.logo.present? %> 
+        <%= image_tag comment.user.logo.url %>
+         <% else %>
+         <%= image_tag "Commentor.png" %>
+      <% end %>
+  </div>
+  
+  <div class="comment_body_cont">
+
+  <div class ="comment_top">
+    <p class="commentor-email">
     <%= comment.user.email %>
   </p>
+  <p class="comments_text_date">
+    <%= comment.created_at %>
+  </p>
+  </div>
 
-  <p>
-    <strong>Body:</strong>
+  <p class="comments_text">
     <%= comment.body %>
   </p>
+  </div>
+  </div>
 
   <% if can? :manage, comment %> 
-  <div> 
-  <%= link_to "Edit this comment", edit_comment_path(comment), class: "manage_button" %> |
-  <%= link_to "Destroy this comment", comment, data: {turbo_method: :delete}, class: "manage_button"%>
+  <div class="comment_buttons"> 
+  <%= link_to "Редактировать", edit_comment_path(comment), class: "manage_button_comment" %>
+  <%= link_to "Удалить", comment, data: {turbo_method: :delete}, class: "manage_button_comment"%>
 </div>
 <% end %>
 

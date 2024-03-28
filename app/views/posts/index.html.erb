@@ -1,18 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<main> 
+  <div class="posts-wrapper">
+  <div id="posts"> 
+  <% @posts.each_with_index do |post, i| %> 
+   <% if i % 9 == 0 %> 
+   <div class="posts-container"> 
+    <% end %> 
+    <%= link_to post, class: "post-#{i % 9}" do %>
+    <div class="post-container-"> 
+      <% if post.post_image.present? %> 
+        <%= image_tag post.post_image.url %> 
+      <% end %> 
+      <div class='posts-item-content'> 
+          <%= image_tag post.user.logo.url, class: "post-user-logo" %> 
+        <p class="post-user-text"> 
+          <%= post.user.name %> 
+        </p> 
 
-<h1>Posts</h1>
+      </div> 
+      </div>
 
-<p><%= link_to "New post", new_post_path, class: "manage_button"  %></p>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post, class: "manage_button"  %>
-      <% if can? :manage, post %> 
-  <%= link_to "Delete this post", post, class: "manage_button", data: {turbo_method: :delete}%>
-<% end %>
-    </p>
-  <% end %>
-</div>
-
+    <% end %> 
+    <% if i % 9 == 8 %> 
+      </div> 
+    <% end %> 
+  <% end %> 
+  </div>
+</main>
