@@ -77,7 +77,7 @@ img {
 
 .search-box__input {
   background-color: transparent;
-  background-image: url('images/search.svg'); /* добавляем изображение лупы */
+  background-image: url('search.svg'); /* добавляем изображение лупы */
   background-size: 20px; /* размер  лупы */
   background-repeat: no-repeat;
   background-position: 10px center; /* позиция изображения внутри input */
@@ -197,22 +197,26 @@ textarea::placeholder {
     margin: 0px;
 }
 
+.post-0 img, .post-1 img, .post-3 img, .post-4 img {
+  width: 100%; 
+  height: 180px; 
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.post-2 img, .post-5 img, .post-6 img, .post-7 img,
+.post-8 img {
+  width: 100%; 
+  height: 414px; 
+  border-radius: 10px;
+  #{i % 9}
+}
 
 .post-0 { 
     grid-row: 1 / 2; 
     grid-column: 1 / 2; 
 } 
 
-.post-container- {
-    width: 100%; 
-    height: 100%; 
-}
- 
-.post-0 img { 
-    width: 80%; 
-    height: 80%; 
-    border-radius: 10px; 
-} 
  
 .post-1 { 
     width: 100%; 
@@ -221,11 +225,6 @@ textarea::placeholder {
     grid-column: 1 / 2; 
 } 
  
-.post-1 img { 
-    width: 80%; 
-    height: 80%; 
-    border-radius: 10px; 
-} 
  
 .post-2 { 
     width: 100%; 
@@ -234,23 +233,12 @@ textarea::placeholder {
     grid-column: 2 / 4; 
 } 
  
-.post-2 img { 
-    width: 90%; 
-    height: 90%; 
-    border-radius: 10px; 
-} 
  
 .post-3 { 
     width: 100%; 
     height: 100%; 
     grid-row: 1 / 2; 
     grid-column: 4 / 5; 
-} 
- 
-.post-3 img { 
-    width: 80%; 
-    height: 80%; 
-    border-radius: 10px; 
 } 
  
  
@@ -261,11 +249,6 @@ textarea::placeholder {
     grid-column: 4 / 5; 
 } 
  
-.post-4 img { 
-    width: 80%; 
-    height: 80%; 
-    border-radius: 10px; 
-} 
  
 .post-5 { 
     width: 100%; 
@@ -274,11 +257,6 @@ textarea::placeholder {
     grid-column: 5 / 7; 
 } 
  
-.post-5 img { 
-       width: 90%; 
-    height: 90%; 
-    border-radius: 10px; 
-} 
  
 .post-6 { 
     width: 100%; 
@@ -287,11 +265,6 @@ textarea::placeholder {
     grid-column: 1 / 3; 
 } 
  
-.post-6 img { 
-    width: 90%; 
-    height: 90%; 
-    border-radius: 10px; 
-} 
  
 .post-7 { 
     width: 100%; 
@@ -300,11 +273,6 @@ textarea::placeholder {
     grid-column: 3 / 5; 
 } 
  
-.post-7 img { 
-    width: 90%; 
-    height: 90%; 
-    border-radius: 10px; 
-} 
  
 .post-8 { 
     width: 100%; 
@@ -313,18 +281,19 @@ textarea::placeholder {
     grid-column: 5 / 7; 
 } 
  
-.post-8 img { 
-    width: 90%; 
-    height: 90%; 
-    border-radius: 10px; 
-} 
 
 
 /* Страница поста */
 
+.back_to_posts_arrow {
+  padding-top: 55px;
+}
+
 .post_row_container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  padding-bottom: 60px;
 }
 
 .post_column_container {
@@ -447,6 +416,11 @@ margin: 0 auto;
 
 /* тултип */ 
 
+#link_copied {
+  visibility: hidden;
+  transition-duration: 0.2s;
+}
+
 #link_copied.post-item-text {
   background-color: #2F5B50;
   position: absolute;
@@ -495,7 +469,7 @@ padding-bottom: 40px;
   }
 
   #comment_body {
-    color: #595E75;
+    color: #FFFFFF;
     display: flex;
     align-items: center;
   }
@@ -594,7 +568,119 @@ padding-bottom: 40px;
   gap: 8px;
 }
 
+/* футер */
 
+footer {
+  width: 100%;
+  border-top: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
 
+.footer_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 1180px;
+}
 
+.footer_left_part {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+.left_part_text {
+  font-family: Tilda Sans;
+  font-size: 14px;
+  color: #595E75;
+}
+
+.footer_right_part {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.footer_title {
+  font-family: PT Mono;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #595E75;
+}
+
+.first_point_list {
+  padding-top: 10px;
+}
+
+.first_point_item {
+font-family: Tilda Sans;
+font-size: 14px;
+color: #595E75;
+padding-bottom: 6px;
+}
+
+.first_point, .second_point {
+  width: 180px;
+}
+
+/* Поиск */
+
+.serach-wrapper {
+  width: 100%;
+}
+
+.search_title {
+  font-family: PT Mono;
+  font-size: 36px;
+  color: #fff;
+  padding-bottom: 40px;
+}
+
+.search_results_grid {
+  row-gap: 40px;
+  column-gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.search_results_grid a {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-post img {
+  width: 100%;
+  height: 296px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.search-item-title {
+  font-family: PT Mono;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 29px;
+  color: #FFFFFF;
+  margin: 0px;
+  padding-top: 20px;
+}
+
+.noting_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 680px;
+  gap: 20px;
+}
+
+/* Профиль */

@@ -1,0 +1,48 @@
+<div class="search-wrapper">
+<% if @posts.present?%>
+
+<div class="posts-wrapper">
+
+
+<div class="search_results_grid">
+<% @posts.each_with_index do |post, i| %>
+  <%= link_to post, class: "search-post" do %>
+
+  <div class='posts-item-content'> 
+          <%= image_tag post.user.logo.url, class: "post-user-logo" %> 
+        <p class="post-user-text"> 
+          <%= post.user.name %> 
+        </p> 
+    </div> 
+
+    <% if post.post_image.present? %>
+      <%= image_tag post.post_image.url, width: 100 %>
+    <% end %>
+
+    <p class="search-item-title">
+    <%= post.title %>
+  </p>
+
+  <div class="tags_container">
+  <% post.tag_list.each do |tag| %>
+    <p class="post-tag-text">
+    <%= tag %>
+    </p>
+  <% end%>
+  </div>
+
+  <% end %>
+<% end %>
+
+
+<% else %>
+<div class="noting_cont">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="40" height="40" rx="20" fill="#F2F2F6"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.1357 12.3621C12.6503 11.8475 13.4848 11.8475 13.9994 12.3621L19.9979 18.3606L25.9963 12.3621C26.511 11.8475 27.3454 11.8475 27.8601 12.3621C28.3748 12.8768 28.3748 13.7112 27.8601 14.2259L21.8616 20.2244L27.8601 26.2228C28.3748 26.7375 28.3748 27.5719 27.8601 28.0866C27.3454 28.6012 26.511 28.6012 25.9963 28.0866L19.9979 22.0881L13.9994 28.0866C13.4848 28.6012 12.6503 28.6012 12.1357 28.0866C11.621 27.5719 11.621 26.7375 12.1357 26.2228L18.1341 20.2244L12.1357 14.2259C11.621 13.7112 11.621 12.8768 12.1357 12.3621Z" fill="#050507"/>
+</svg>
+<p class="search_title">Нет результатов по запросу</p>
+</div>
+<% end %>
+</div>
+</div>

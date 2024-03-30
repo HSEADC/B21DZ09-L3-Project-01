@@ -1,0 +1,16 @@
+<h1>Search result</h1>
+<% posts.each do |post| %>
+  <%= link_to post do %>
+    <% if post.post_image.present? %>
+      <%= image_tag post.post_image.url, width: 100 %>
+    <% end %>
+
+    <p>
+      <%= post.user.name %>
+    </p>
+
+    <% if post.user.logo.present? %>
+      <%= image_tag post.user.logo.url, width: 100 %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -8,8 +8,10 @@
 
     <nav class="menu header__menu">
       <ul class="menu__list">
-        <li class="menu__item"><a class="menu__link">Рекомендации</a></li>
+        <li class="menu__item"><%= link_to "Рекомендации", posts_url, class: "menu__link" %></li>
+        <% if current_user %>
         <li class="menu__item"><%= link_to "Твои подписки", posts_url, class: "menu__link" %></li>
+        <% end %>
         <li class="menu__item"><a class="menu__link" href="studios.html">Маркетплейс favias</a>
           <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" clip-rule="evenodd"
@@ -25,19 +27,28 @@
 					<input type="text" name="query" placeholder="Поиск" class="search-box__input">
 				</form>
 			</div>
+
+
+<% if current_user %>
 			<div class="header__actions">
 				<button class="notifications__button">
           <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1429 21.144C12.8354 22.0512 12.2215 22.6837 11.6739 23.2479C11.033 23.9083 10.4829 24.4751 10.6216 25.2792C10.8245 26.4555 12.3679 26.4416 13.2371 26.4337L16.7954 26.4325C16.9215 28.3687 18.5319 29.9001 20.5 29.9001C22.468 29.9001 24.0784 28.3687 24.2045 26.4325L27.7628 26.4337C28.6321 26.4416 30.1755 26.4555 30.3784 25.2792C30.5171 24.4751 29.967 23.9083 29.326 23.2479C28.7785 22.6837 28.1646 22.0512 27.857 21.144C27.4676 19.9952 27.2756 18.0201 26.935 16.0025C26.44 13.0701 24.46 10.1001 20.5 10.1001C16.54 10.1001 14.56 13.0701 14.065 16.0025C13.7366 17.9476 13.5324 19.9952 13.1429 21.144ZM12.1843 24.8942C12.2835 24.7614 12.4582 24.5705 12.7496 24.2726C13.2823 23.728 14.128 22.8635 14.5493 21.6208C15.1308 19.9054 15.2293 18.0266 15.5293 16.2497C15.7395 15.004 16.2559 13.822 17.0606 12.9736C17.835 12.157 18.9318 11.5851 20.5 11.5851C22.0681 11.5851 23.1649 12.157 23.9394 12.9736C24.7441 13.822 25.2604 15.004 25.4707 16.2497C25.772 18.0348 25.8672 19.8996 26.4507 21.6208C26.872 22.8635 27.7176 23.728 28.2504 24.2726C28.5417 24.5705 28.7164 24.7614 28.8156 24.8942C28.4092 24.9728 27.9883 24.9475 27.5769 24.9475H13.423C13.0116 24.9475 12.5908 24.9728 12.1843 24.8942ZM22.7142 26.4325H18.2858C18.4077 27.5475 19.3525 28.4151 20.5 28.4151C21.6474 28.4151 22.5922 27.5475 22.7142 26.4325Z" fill="#F7F7F7"/>
 </svg>
-				</button>
+			
+        </button>
+
 				<button class="create__button">Создать Айтем</button>
 				
-         <% if current_user %>
-         <%= link_to welcome_index_url, class: "round__button" do %>
-          <%= image_tag current_user.logo.url, class: "round__button-icon", alt: "Лого пользователя"%> 
+        
+          <%= link_to edit_user_registration_path, class: "round__button" do %> 
+            <%= image_tag current_user.logo.url, class: "round__button-icon", alt: "Лого пользователя"%>  
+          <% end %> 
+        <% else %> 
+          <%= link_to "Войти", new_user_session_path, class: "menu__link" %> 
         <% end %>
-         <% end %>
+
+
 
 			</div>
 

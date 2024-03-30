@@ -32,3 +32,30 @@
 <% end %>
 
 <%= link_to "Back", :back %>
+
+<div class="posts-wrapper"> 
+  <div id="posts">  
+  <% resource.posts.each_with_index do |post, i| %>  
+   <% if i % 9 == 0 %>  
+   <div class="posts-container">  
+    <% end %>  
+    <%= link_to post, class: "post-#{i % 9}" do %> 
+    <div class="post-container-">  
+      <% if post.post_image.present? %>  
+        <%= image_tag post.post_image.url %>  
+      <% end %>  
+      <div class='posts-item-content'>  
+          <%= image_tag post.user.logo.url, class: "post-user-logo" %>  
+        <p class="post-user-text">  
+          <%= post.user.name %>  
+        </p>  
+ 
+      </div>  
+      </div> 
+ 
+    <% end %>  
+    <% if i % 9 == 8 %>  
+      </div>  
+    <% end %>  
+  <% end %>  
+  </div>

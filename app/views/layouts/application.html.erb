@@ -13,6 +13,8 @@
      <%= stylesheet_link_tag "application", "data-turbo-track": "reload"%>
     <%end%>
 
+<%= javascript_include_tag "main.js" %>
+
     <%= javascript_importmap_tags %>
   </head>
 
@@ -21,6 +23,7 @@
   
     <%= yield %>
     
-    <%= render "footer"%>
 </body>
+<%= render "footer"%>
+
 </html>

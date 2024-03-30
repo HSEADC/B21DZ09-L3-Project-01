@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   mount Resque::Server.new, :at => "/resque"
 
   resources :comments
-
+  resources :search
   resources :posts do
     resources :comments
   end

@@ -1,30 +1,38 @@
 
-<p style="color: green"><%= notice %></p>
-
-<%# <div class="post_row_container"> %>
-<%= link_to "Back", posts_url %>
-
-<div class="post_column_container">
-<%= render @post %>
 
 
+<div class="post_row_container">
 
-<div class ="comments_form_container">
-	<%= render "comments/form", post_id: @post.id %>
-</div>
-
-
-<%= render @post.comments.order(created_at: :desc) %>
-
-<div>
-  <%= link_to "Back to posts", posts_path, class: "manage_button" %>
-
-  <% if can? :manage, @post %> 
-  <%= link_to "Delete this post", @post, data: {turbo_method: :delete}, class: "manage_button"%>
-  <%= link_to "Edit this post", edit_post_path(@post), class: "manage_button" %>
+<div class="back_to_posts_arrow">
+<%= link_to posts_url do %>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.1855 4.24063C11.4852 3.91979 11.984 3.91979 12.2942 4.24063C12.5939 4.55063 12.5939 5.06657 12.2942 5.37585L6.67228 11.1907H19.2238C19.6563 11.1914 20 11.5469 20 11.9942C20 12.4415 19.6563 12.8086 19.2238 12.8086H6.67228L12.2942 18.6126C12.5939 18.9334 12.5939 19.4501 12.2942 19.7594C11.984 20.0802 11.4845 20.0802 11.1855 19.7594L4.23265 12.568C3.92245 12.258 3.92245 11.742 4.23265 11.4328L11.1855 4.24063Z" fill="#F7F7F7"/>
+</svg>
 <% end %>
 </div>
 
 
-</div>
+  <div class="post_column_container">
+    <%= render @post %>
+
+
+
+    <div class ="comments_form_container">
+      <%= render "comments/form", post_id: @post.id %>
+    </div>
+
+
+    <%= render @post.comments.order(created_at: :desc) %>
+
+    <div>
+      <%= link_to "Back to posts", posts_path, class: "manage_button" %>
+
+      <% if can? :manage, @post %> 
+        <%= link_to "Delete this post", @post, data: {turbo_method: :delete}, class: "manage_button"%>
+        <%= link_to "Edit this post", edit_post_path(@post), class: "manage_button" %>
+      <% end %>
+    </div>
+
+
+  </div>
 </div>

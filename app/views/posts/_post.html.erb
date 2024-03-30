@@ -41,13 +41,13 @@
 <div class="likes_count_container">
   <div class="likes_number_container">
 
-<a class="navigation-link" onclick="like_post()" id='liked'>
+<a class="navigation-link" onclick="like_post(post_id)" id='liked'>
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 4.5C5.27956 4.5 3.5 6.26849 3.5 8.425C3.5 10.2648 4.4339 12.0808 6.10998 14.0356C7.6813 15.8681 9.82573 17.7334 12.25 19.771C14.6743 17.7334 16.8187 15.8681 18.39 14.0356C20.0661 12.0808 21 10.2648 21 8.425C21 6.26849 19.2204 4.5 17 4.5C15.1557 4.5 13.4547 5.70819 12.9659 7.27292C12.8681 7.58607 12.5781 7.79929 12.25 7.79929C11.9219 7.79929 11.6319 7.58607 11.5341 7.27292C11.0453 5.70819 9.34435 4.5 7.5 4.5ZM2 8.425C2 5.41765 4.47373 3 7.5 3C9.37658 3 11.1948 3.93637 12.25 5.40244C13.3052 3.93637 15.1234 3 17 3C20.0263 3 22.5 5.41765 22.5 8.425C22.5 10.7927 21.2964 12.9504 19.5287 15.0119C17.7596 17.0752 15.3352 19.1437 12.7317 21.3249C12.453 21.5584 12.047 21.5584 11.7683 21.3249C9.16484 19.1437 6.7404 17.0752 4.97127 15.0119C3.2036 12.9504 2 10.7927 2 8.425Z" fill="#F7F7F7"/>
 </svg>
 </a>
 
-<a class="navigation-link" onclick="delete_post()" id='disliked'>
+<a class="navigation-link" onclick="delete_post(post_id)" id='disliked'>
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 8.5C9.27956 8.5 7.5 10.2685 7.5 12.425C7.5 14.2648 8.4339 16.0808 10.11 18.0356C11.6813 19.8681 13.8257 21.7334 16.25 23.771C18.6743 21.7334 20.8187 19.8681 22.39 18.0356C24.0661 16.0808 25 14.2648 25 12.425C25 10.2685 23.2204 8.5 21 8.5C19.1557 8.5 17.4547 9.70819 16.9659 11.2729C16.8681 11.5861 16.5781 11.7993 16.25 11.7993C15.9219 11.7993 15.6319 11.5861 15.5341 11.2729C15.0453 9.70819 13.3443 8.5 11.5 8.5ZM6 12.425C6 9.41765 8.47373 7 11.5 7C13.3766 7 15.1948 7.93637 16.25 9.40244C17.3052 7.93637 19.1234 7 21 7C24.0263 7 26.5 9.41765 26.5 12.425C26.5 14.7927 25.2964 16.9504 23.5287 19.0119C21.7596 21.0752 19.3352 23.1437 16.7317 25.3249C16.453 25.5584 16.047 25.5584 15.7683 25.3249C13.1648 23.1437 10.7404 21.0752 8.97127 19.0119C7.2036 16.9504 6 14.7927 6 12.425Z" fill="#EF2743"/>
 <path d="M8.5 16.5L16.5 24.5L19 23L24 18.5L26 14.5V11.5L25 9L22.5 8H20.5L19 8.5L16.5 10.5L15.5 9L13.5 8H10L7.5 10L7 13L8.5 16.5Z" fill="#EF2743"/>
@@ -61,102 +61,45 @@
 
 </div>
 
-<div id='link_copied' class='post-item-text' hidden>
+<div id='link_copied' class='post-item-text'>
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10ZM13.6206 6.62347C13.9667 6.85109 14.0627 7.31615 13.8351 7.66222L10.4278 12.9698C9.95945 13.6993 9.72529 14.0641 9.38051 14.1097C9.34307 14.1147 9.3053 14.1168 9.26753 14.1161C8.91981 14.1093 8.64623 13.7731 8.09907 13.1007L6.51804 11.1578C6.25684 10.8363 6.3057 10.3639 6.62718 10.1027C6.94865 9.84153 7.42101 9.8904 7.68221 10.2119L9.29118 12.1907C9.29118 12.1907 11.6324 8.28159 12.5819 6.83795C12.8095 6.49188 13.2746 6.39585 13.6206 6.62347Z" fill="#F7F7F7"/>
 </svg>
-  <p class="tooltip_text">Ссылка скопирована!</p>
+  <p class="tooltip_text" >Ссылка скопирована</p>
 </div>
 
-<a class='navigation-link' onclick="copyContent()">
+<a class='navigation-link' onclick="myCopyContent()">
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M18.4782 13.0247L17.0974 13.1347C12.521 13.4995 9.01282 16.7674 7.87205 21.4487C11.2081 18.4956 14.6963 18.1 16.9782 18.1H18.4782L18.4782 22.5L24.9068 15.75L18.4782 9V13.0247ZM26.19 14.9224C26.4672 15.2134 26.6058 15.359 26.658 15.5252C26.704 15.6715 26.704 15.8285 26.658 15.9748C26.6058 16.1411 26.4672 16.2866 26.19 16.5776L18.3575 24.8017C17.9269 25.2539 17.7116 25.4799 17.5259 25.4977C17.3649 25.5132 17.2063 25.4497 17.1004 25.3275C16.9782 25.1865 16.9782 24.8744 16.9782 24.25L16.9782 19.6C16.5238 19.6 16.0197 19.6165 15.4782 19.6706C13.188 19.8992 10.1877 20.8441 7.46288 24.0055C7.36886 24.1155 7.27512 24.2281 7.18171 24.3435C7.05248 24.5031 6.85804 24.6 6.65265 24.6C6.28161 24.6 5.98077 24.2964 6.00096 23.9259C6.01026 23.7552 6.02222 23.5854 6.0368 23.4167C6.60557 17.0597 10.9023 12.1238 16.9782 11.6395V7.25C16.9782 6.62564 16.9782 6.31346 17.1004 6.17251C17.2063 6.05027 17.3649 5.98684 17.5259 6.00229C17.7116 6.0201 17.9269 6.24616 18.3575 6.69828L26.19 14.9224Z" fill="#F7F7F7"/>
 </svg>
 
 </a>
 
-<script>
- var post_liked = !!'<%= current_user ? current_user.post_liked?(post) : false %>'
- var copyText = window.location.href
- const copyContent = async () => {
-    try {
-      await navigator.clipboard.writeText(copyText);
-      console.log('Content copied to clipboard');
-      var link = document.getElementById("link_copied");
-      console.warn(link)
-      link.hidden = false
-    } catch (err) {
-      console.error('Failed to copy: ', err);
-    }
-  }
-
-  const like_post = async () => {
-    const myHeaders = new Headers();
-    
-    myHeaders.append("Content-Type", "application/json");
-    const raw = JSON.stringify({
-      "user_id": <%= current_user.id %>
-    });
-
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow"
-    };
-
-    fetch("http://127.0.0.1:3000/api/v1/posts/<%= post.id%>/likes", requestOptions)
-      .then((response) => response.text())
-      .then((result) => {
-        post_liked = !post_liked
-        taggle_like()
-
-      })
-      .catch((error) => console.error(error));
-  }
-
-  const delete_post = async () => {
-    const myHeaders = new Headers();
-    
-    myHeaders.append("Content-Type", "application/json");
-    const raw = JSON.stringify({
-      "user_id": <%= current_user.id %>
-    });
-
-    const requestOptions = {
-      method: "DELETE",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow"
-    };
-
-    fetch("http://127.0.0.1:3000/api/v1/posts/<%= post.id%>/likes", requestOptions)
-      .then((response) => response.text())
-      .then((result) => {
-        post_liked = !post_liked
-        taggle_like()
-      })
-      .catch((error) => console.error(error));
-  }
-
-  taggle_like()
-
-  function taggle_like() {
-    var liked_tag = document.getElementById("liked");
-    var disliked_tag = document.getElementById("disliked");
-
-  if (post_liked) {
-    liked_tag.hidden = true
-    disliked_tag.hidden = false
-  } else {
-    liked_tag.hidden = false
-    disliked_tag.hidden = true
-  }
-  }
+<script> 
+ var post_liked = !!'<%= current_user ? current_user.post_liked?(post) : false %>' 
+ var user_id = <%= current_user&.id || 0 %> 
+ var post_id = <%= post.id %> 
+ 
+taggle_like() 
+ 
+function taggle_like() { 
+  var liked_tag = document.getElementById("liked"); 
+  var disliked_tag = document.getElementById("disliked"); 
+ 
+  if (post_liked) { 
+    liked_tag.hidden = true 
+    disliked_tag.hidden = false 
+  } else { 
+    liked_tag.hidden = false 
+    disliked_tag.hidden = true 
+  } 
+} 
 </script>
+
 
 </div>
 
 
+</div>
 </div>
 </div>
